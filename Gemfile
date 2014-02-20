@@ -6,6 +6,27 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'cancan'
+gem 'ransack'
+gem 'kaminari'
+gem 'letter_opener'
+# gem 'acts-as-taggable-on'
+gem 'haml-rails'
+gem 'carrierwave'
+gem 'rmagick'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'annotate'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
 
 
 # Gems used only for assets and not required
