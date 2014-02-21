@@ -7,8 +7,7 @@ Timdr::Application.routes.draw do
   get "/users", to: 'users#index', as: 'users'
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
-
-
+  
   root to: 'home#index'
 
   # The priority is based upon order of creation:
