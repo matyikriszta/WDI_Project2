@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221171036) do
+ActiveRecord::Schema.define(:version => 20140222110906) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20140221171036) do
     t.string   "membership"
     t.string   "gender"
     t.string   "preference"
-    t.date     "DOB"
+    t.date     "dob"
     t.text     "description"
     t.string   "location"
     t.float    "longitude"

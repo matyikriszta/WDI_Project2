@@ -9,6 +9,15 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
+  <div><%= f.label :gender %><br />
+  <%= f.select :gender, ['male', 'female'] %></div>
+
+  <div><%= f.label :preference %><br />
+  <%= f.select :preference, ['male', 'female', 'both'] %></div>
+
+  <div><%= f.label :dob %><br />
+  <%= f.text_field :dob, type: 'date' %></div>
+
   <div><%= f.label :location %><br />
   <%= f.text_field :location %></div>
 

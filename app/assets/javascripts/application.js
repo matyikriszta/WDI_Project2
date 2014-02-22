@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(function() {
-  $('#user_interest_list').tokenfield({
+  $('#user_interest_list, #interest_list').tokenfield({
     autocomplete: {
       source: function( request, response ) {
         $.ajax({
