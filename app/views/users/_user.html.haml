@@ -1,0 +1,7 @@
+.user
+  .profile
+    =link_to( image_tag('tim.jpg'), user_profile_path(user) )
+  %ul
+    %li= user.name
+    %li= user.gender
+    %li #{user.distance_to(current_user).round(1)} miles

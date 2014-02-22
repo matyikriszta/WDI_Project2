@@ -8,6 +8,40 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require jquery.ui.autocomplete
+ *= require jquery.ui.slider
  *= require_self
  *= require_tree .
  */
+
+#main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.user img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.user .profile {
+  float: left;
+  margin-right: 20px;
+}
+
+.user {
+  margin: 20px;
+  height: 150px;
+  width: 280px;
+  float: left;
+}
+
+.user ul {
+  padding: 40px 0;
+  list-style: none;
+}
+
+.pagination {
+  clear: both;
+}
