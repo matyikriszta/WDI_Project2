@@ -18,7 +18,18 @@
 $(function() {
   $('#user_interest_list').tokenfield({
     autocomplete: {
-      source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+      source: function( request, response ) {
+        $.ajax({
+          url: "/tags",
+          dataType: "json",
+          data: {
+            q: request.term
+          },
+          success: function( data ) {
+            response(data);
+          }
+        });
+      },
       delay: 100
     },
     showAutocompleteOnFocus: true
