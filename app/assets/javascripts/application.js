@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require_tree .
+
+$(function() {
+  $('#user_interest_list').tokenfield({
+    autocomplete: {
+      source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+      delay: 100
+    },
+    showAutocompleteOnFocus: true
+  })
+})
