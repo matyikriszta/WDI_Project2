@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
 
@@ -27,8 +28,7 @@ class UsersController < ApplicationController
   end
 
   def inbox
-  @title = "Inbox"
-  @messages = current_user.received_messages
+    @messages = current_user.received_messages
   end
 
   def new_message
@@ -36,10 +36,9 @@ class UsersController < ApplicationController
   end
 
   def create_message
-    @to = User.find_by_email(params[:acts_as_messageable_message][:to])
-    current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body])
-    raise
-    redirect_to :back, notice: "Message sent to Owner"
+    @to = User.find_by_email(params[:message][:to])
+    current_user.send_message(@to, params[:message][:topic], params[:message][:body])
+    redirect_to messages_path
   end
 
   def destroy_message
@@ -50,4 +49,5 @@ class UsersController < ApplicationController
       flash[:error] = "Fail"
     end
   end
+
 end
