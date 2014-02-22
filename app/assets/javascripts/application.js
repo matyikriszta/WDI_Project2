@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jquery.ui.slider
 //= require_tree .
 
 $(function() {
@@ -32,6 +33,15 @@ $(function() {
       },
       delay: 100
     },
-    showAutocompleteOnFocus: true
+    showAutocompleteOnFocus: false
   })
+
+  $( "#distance_slider" ).slider({
+    value: 10,
+    min: 1,
+    max: 700,
+    slide: function( event, ui ) {
+      $( "#distance" ).val( ui.value + ' miles' );
+    }
+  });
 })
