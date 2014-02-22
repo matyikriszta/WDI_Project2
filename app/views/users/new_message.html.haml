@@ -1,0 +1,10 @@
+%h1 Send Message
+
+= form_for :message, :url => create_message_path, :method => :post do |f|
+  = f.label :to, t(:to)
+  = f.text_field :to, :class => "text_field"
+  = f.label :topic, t(:topic)
+  = f.text_field :topic, :class => "text_field"
+  = f.label :body, t(:body)
+  = f.text_area :body, :class => "text_field"
+  = f.submit t(:send)

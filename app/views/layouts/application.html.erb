@@ -9,11 +9,11 @@
 <body>
     <div class="login">
     <% if current_user %>
-      <%= current_user.email %> | <%= link_to "log out", destroy_user_session_path, method: :delete %>
+      <%= current_user.email %>
+      <%= link_to 'log out', destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "Sign in", new_user_session_path %> | 
-      <%= link_to "Register", new_user_registration_path %>
-      or 
+      <%= link_to 'sign in', new_user_session_path %>
+      <%= link_to 'sign up', new_user_registration_path %>
     <% end %>
   </div>
 

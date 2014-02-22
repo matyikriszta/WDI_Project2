@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
 
   acts_as_messageable :table_name => "messages",
-                      :required   => :body
-
+                      :required   => [:topic, :body],
+                      :class_name => "ActsAsMessageable::Message",
+                      :dependent  => :nullify
+                      
   # has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
   # has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
 
@@ -17,6 +19,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :to, :topic, :body
   # attr_accessible :title, :body
 end
