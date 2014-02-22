@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
+
+  acts_as_messageable :table_name => "messages",
+                      :required   => :body
+
+  # has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
+  # has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
+
   has_many :images
-  
-  has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
-  has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
 
   has_many :likes
   has_many :has_liked, class_name: 'Like', foreign_key: :liked_user_id 

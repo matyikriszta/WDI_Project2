@@ -754,3 +754,26 @@ Compiled application.css  (58ms)  (pid 19929)
 Compiled users.js  (192ms)  (pid 19929)
 Compiled application.js  (258ms)  (pid 19929)
 Completed 200 OK in 344.1ms (Views: 343.7ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20140221143156)
+Migrating to CreateMessages (20140221143908)
+Migrating to CreateLikes (20140221144101)
+Migrating to CreateImages (20140221144229)
+Migrating to CreateMessagesTable (20140221162635)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "messages"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic" varchar(255), "body" text, "received_messageable_id" integer, "received_messageable_type" varchar(255), "sent_messageable_id" integer, "sent_messageable_type" varchar(255), "opened" boolean DEFAULT 'f', "recipient_delete" boolean DEFAULT 'f', "sender_delete" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "ancestry" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "acts_as_messageable_ids" ON "messages" ("sent_messageable_id", "received_messageable_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_messages_on_ancestry" ON "messages" ("ancestry")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140221162635')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddRecipientPermanentDeleteAndSenderPermanentDeleteToMessages (20140221162636)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "messages" ADD "recipient_permanent_delete" boolean DEFAULT 'f'[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "messages" ADD "sender_permanent_delete" boolean DEFAULT 'f'
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20140221162636')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m

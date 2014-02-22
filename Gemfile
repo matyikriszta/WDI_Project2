@@ -16,6 +16,7 @@ gem 'letter_opener'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'acts-as-messageable'
 
 group :development, :test do
   gem 'pry-rails'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221144229) do
+ActiveRecord::Schema.define(:version => 20140221162636) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
@@ -31,13 +31,24 @@ ActiveRecord::Schema.define(:version => 20140221144229) do
   end
 
   create_table "messages", :force => true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
-    t.text     "content"
-    t.boolean  "viewed"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "topic"
+    t.text     "body"
+    t.integer  "received_messageable_id"
+    t.string   "received_messageable_type"
+    t.integer  "sent_messageable_id"
+    t.string   "sent_messageable_type"
+    t.boolean  "opened",                     :default => false
+    t.boolean  "recipient_delete",           :default => false
+    t.boolean  "sender_delete",              :default => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "ancestry"
+    t.boolean  "recipient_permanent_delete", :default => false
+    t.boolean  "sender_permanent_delete",    :default => false
   end
+
+  add_index "messages", ["ancestry"], :name => "index_messages_on_ancestry"
+  add_index "messages", ["sent_messageable_id", "received_messageable_id"], :name => "acts_as_messageable_ids"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
