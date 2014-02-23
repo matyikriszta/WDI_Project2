@@ -15,13 +15,11 @@
  */
 
 #nav {
-  border: 1px solid black;
   width: 960px;
   margin: 0 auto;
 }
 
 #content {
-  border: 1px solid black;
   width: 960px;
   margin: 0 auto;
 }
@@ -52,7 +50,6 @@
 .profile_dash {
   width: 200px;
   display: inline-block;
-  border: 1px solid black;
 }
 
 .profile_dash img {
