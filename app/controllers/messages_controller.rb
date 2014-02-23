@@ -25,12 +25,13 @@ class MessagesController < ApplicationController
 
   def conversation
     @message = current_user.messages.find_by_id(params[:id])
-    render :reply
+    render :conversation
   end
 
   def reply
     @message = current_user.messages.find_by_id(params[:id])
     @message.reply(params[:topic], params[:body])
+    redirect_to conversation_path(@message)
   end
 
   def destroy_message

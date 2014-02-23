@@ -1,2 +1,15 @@
-%h1 Users#dash
-%p Find me in app/views/users/dashboard.html.haml
+.profile_dash
+  = image_tag('tim.jpg')
+  %ul#small
+    %li= current_user.name
+    %li= current_user.gender
+    %li= current_user.location
+
+.inbox
+  %h2 Messages
+
+.likes
+  %h2 Likes
+
+.search
+  %h2 Search

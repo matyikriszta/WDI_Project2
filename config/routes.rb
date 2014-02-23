@@ -5,7 +5,7 @@ Timdr::Application.routes.draw do
   get "/messages", to: 'messages#inbox', as: 'inbox'
   get "/messages/new", to: 'messages#new_message', as: 'new_message'
   post "/messages", to: 'messages#create_message', as: 'create_message'
-  post "/messages/reply", to: 'messages#reply', as: 'reply'
+  post "/messages/reply/:id", to: 'messages#reply', as: 'reply'
   get "messages/conversation/:id", to: 'messages#conversation', as: 'conversation' 
   get "/messages/outbox", to: 'messages#outbox', as: 'outbox'
   get "/messages/all", to: 'messages#all', as: 'all'
