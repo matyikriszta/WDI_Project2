@@ -7,7 +7,10 @@ class MessagesController < ApplicationController
 
   def outbox
     @messages = current_user.sent_messages
-    render :inbox
+  end
+
+  def all
+    @messages = current_user.messages
   end
 
   def new_message
@@ -20,6 +23,16 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def conversation
+    @message = current_user.messages.find_by_id(params[:id])
+    render :reply
+  end
+
+  def reply
+    @message = current_user.messages.find_by_id(params[:id])
+    @message.reply(params[:topic], params[:body])
+  end
+
   def destroy_message
     @message = current_user.messages.find(params[:id])
     if @message.destroy
@@ -27,5 +40,10 @@ class MessagesController < ApplicationController
     else
       flash[:error] = "Fail"
     end
+    redirect_to messages_path
+  end
+
+  def trash
+    @messages = current_user.deleted_messages
   end
 end

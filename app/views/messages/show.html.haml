@@ -1,18 +1,19 @@
-%p#notice= notice
+%h1 Listing messages
 
-%p
-  %b Sender:
-  = @message.sender_id
-%p
-  %b Receiver:
-  = @message.receiver_id
-%p
-  %b Content:
-  = @message.content
-%p
-  %b Viewed:
-  = @message.viewed
+%table
+  %tr
+    %th From
+    %th Topic 
+    %th Content
+    %th
+    %th
 
-= link_to 'Edit', edit_message_path(@message)
-\|
-= link_to 'Back', messages_path
+  - @messages.each do |message|
+    %tr
+      %td= message.from.name
+      %td= message.topic
+      %td= message.body
+      %td= link_to 'Reply', conversation_path(message.id)
+      / %td= link_to 'Delete', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
