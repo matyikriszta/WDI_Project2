@@ -6,12 +6,12 @@
         - @image.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :user
-    = f.text_field :user
+  
   .field
     = f.label :image
-    = f.text_field :image
+    = f.file_field :image
+    / = image_tag(@user.avatar_url) if @user.avatar?
+    / = f.text_field :remote_avatar_url
   .field
     = f.label :title
     = f.text_field :title
