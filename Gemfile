@@ -11,11 +11,12 @@ gem 'omniauth-facebook'
 gem 'cancan'
 gem 'ransack'
 gem 'kaminari'
-gem 'letter_opener'
-# gem 'acts-as-taggable-on'
+# gem 'letter_opener'
+gem 'acts-as-taggable-on'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-rails'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'faker'
 end
 
 
@@ -42,6 +44,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

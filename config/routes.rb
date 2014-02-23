@@ -1,12 +1,14 @@
 Timdr::Application.routes.draw do
-  get "/users", to: 'users#index', as: 'users'
-  get "/users/:id", to: 'users#show', as: 'user_profile'
-  get "/dashboard", to: 'users#dashboard', as: 'dashboard'
-
   resources :images
   resources :likes
   resources :messages
   devise_for :users
+  
+  get "/users", to: 'users#index', as: 'users'
+  get "/users/search", to: 'users#search', as: 'user_search'
+  get "/users/:id", to: 'users#show', as: 'user_profile'
+  get "/dashboard", to: 'users#dashboard', as: 'dashboard'
+  get "/tags", to: 'tags#index'
   
   root to: 'home#index'
 

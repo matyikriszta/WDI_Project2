@@ -13,6 +13,45 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :location, :interest_list, :gender, :preference, :dob, :description
   # attr_accessible :title, :body
+
+  geocoded_by :location
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :geocode
+
+  acts_as_taggable_on :interests
+
+  validates :name, :location, :gender, :preference, :dob, :membership, presence: true
+
+  validate :older_than_18
+
+  before_validation :set_membership_to_basic
+
+  def older_than_18
+    errors.add( :dob, 'must be greater than 18 years') if age < 18
+  end
+
+  def age
+    if dob
+      now = Time.now.utc.to_date
+      now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+    else
+      0
+    end
+  end
+
+  def get_preference
+    if self.preference == 'both'
+      ['male', 'female']
+    else
+      self.preference
+    end
+  end
+
+  private
+  def set_membership_to_basic
+    self.membership ||= "basic"
+  end
+
 end
