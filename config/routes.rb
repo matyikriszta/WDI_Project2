@@ -9,6 +9,7 @@ Timdr::Application.routes.draw do
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
   get "/tags", to: 'tags#index'
+  post "users/like/:id", to: 'likes#create_like', as: 'create_like'
   
   root to: 'home#index'
 

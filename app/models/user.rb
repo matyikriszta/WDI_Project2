@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+  acts_as_votable
+
   has_many :images
   
   has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
   has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
 
-  has_many :likes
-  has_many :has_liked, class_name: 'Like', foreign_key: :liked_user_id 
+  # has_many :likes
+  # has_many :has_liked, class_name: 'Like', foreign_key: :liked_user_id 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -47,6 +50,14 @@ class User < ActiveRecord::Base
     else
       self.preference
     end
+  end
+
+  def match
+    self.find_voted_items.select { |user| user.find_voted_items.include?(self)}
+  end
+
+  def is_match?(user)
+    match.include?(user)
   end
 
   private

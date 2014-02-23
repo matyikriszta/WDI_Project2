@@ -17,6 +17,7 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem "geocoder"
+gem 'acts_as_votable'
 
 group :development, :test do
   gem 'pry-rails'
