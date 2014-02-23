@@ -12,10 +12,10 @@
 
   - @messages.each do |message|
     %tr
-      %td= message.sender_id
-      %td= message.receiver_id
-      %td= message.content
-      %td= message.viewed
+      %td= message.sent_messageable_id
+      %td= message.received_messageable_id
+      %td= message.title
+      %td= message.body
       %td= link_to 'Show', message
       %td= link_to 'Edit', edit_message_path(message)
       %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }

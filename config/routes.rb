@@ -6,9 +6,9 @@ Timdr::Application.routes.draw do
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
 
-  get "/messages", to: 'users#inbox', as: 'inbox'
-  get "/messages/new", to: 'users#new_message', as: 'new_message'
-  post "/messages", to: 'users#create_message', as: 'create_message'
+  get "/messages", to: 'messages#inbox', as: 'inbox'
+  get "/messages/new", to: 'messages#new_message', as: 'new_message'
+  post "/messages", to: 'messages#create_message', as: 'create_message'
 
   resources :images
   resources :likes
