@@ -2,10 +2,6 @@ Timdr::Application.routes.draw do
 
   devise_for :users
 
-  get "/users", to: 'users#index', as: 'users'
-  get "/users/:id", to: 'users#show', as: 'user_profile'
-  get "/dashboard", to: 'users#dashboard', as: 'dashboard'
-
   get "/messages", to: 'messages#inbox', as: 'inbox'
   get "/messages/new", to: 'messages#new_message', as: 'new_message'
   post "/messages", to: 'messages#create_message', as: 'create_message'
@@ -13,6 +9,12 @@ Timdr::Application.routes.draw do
   resources :images
   resources :likes
   resources :messages
+  
+  get "/users", to: 'users#index', as: 'users'
+  get "/users/search", to: 'users#search', as: 'user_search'
+  get "/users/:id", to: 'users#show', as: 'user_profile'
+  get "/dashboard", to: 'users#dashboard', as: 'dashboard'
+  get "/tags", to: 'tags#index'
   
   root to: 'home#index'
 

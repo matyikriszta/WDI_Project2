@@ -1,2 +1,11 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%h1= @user.name
+%img{src: '/assets/tim.jpg' }
+%p= @user.email
+%p= @user.location
+%p= @user.interest_list
+%p Looking for: #{@user.preference}
+
+%p= @user.location
+/ %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
+
+%p= @user.description

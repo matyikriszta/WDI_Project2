@@ -1,30 +1,29 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.where(gender: current_user.get_preference).page(params[:page]).per(12)
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+  def search
+
+    if params['distance'].blank?
+      @users =  User.where(gender: current_user.get_preference).page(params[:page]).per(12)
+    else
+      @users = current_user.nearbys(params[:distance]).where(gender: current_user.get_preference).page(params[:page]).per(12)
+    end    
+
+    unless params['interest_list'].blank?
+      @users = @users.tagged_with(params['interest_list']).page(params[:page]).per(12)
     end
+    # raise
+    render :index
   end
 
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
   def dashboard
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
 end
