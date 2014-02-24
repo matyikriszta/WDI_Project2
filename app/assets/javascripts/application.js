@@ -39,9 +39,20 @@ $(function() {
   $( "#distance_slider" ).slider({
     value: 10,
     min: 1,
-    max: 700,
+    max: 50,
     slide: function( event, ui ) {
       $( "#distance" ).val( ui.value + ' miles' );
     }
   });
+
+  $( "#age_slider" ).slider({
+    range: true,
+    values: [25, 35],
+    min: 18,
+    max: 75,
+    slide: function( event, ui ) {
+      $( "#age" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+    }
+  });
+
 })

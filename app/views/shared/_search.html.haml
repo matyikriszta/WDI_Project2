@@ -1,0 +1,12 @@
+= form_tag '/users/search', {method: :get} do
+
+  = text_field_tag :age, '25 - 35', { placeholder: 'distance' }
+  #age_slider  
+
+  = text_field_tag :interest_list, params[:interest_list], { placeholder: 'interests', class: 'tokenfield' }
+
+  = text_field_tag :distance, '10 miles', { placeholder: 'distance' }
+  #distance_slider
+
+  = select_tag :membership, options_for_select(['basic', 'premium'])
+  = submit_tag :submit, { value: 'Search' }  
