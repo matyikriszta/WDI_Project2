@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @messages = current_user.received_messages
   end
 
 end

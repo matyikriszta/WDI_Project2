@@ -7,9 +7,10 @@
     %th
 
   - @messages.conversations.each do |message|
-    %tr
-      %td= message.to.name
-      %td= message.topic
-      %td= message.body
+    - if current_user.id == message.sent_messageable_id || message.opened
+      %tr
+        %td= message.to.name
+        %td= message.topic
+        %td= message.body
 
 %br
