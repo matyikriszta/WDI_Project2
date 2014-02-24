@@ -6,7 +6,8 @@
     %li= current_user.location
 
 .inbox
-  %h2 Messages
+  %h2#incoming New messages
+  = render 'messages/inbox'
   = link_to 'Messages', all_path
   
 

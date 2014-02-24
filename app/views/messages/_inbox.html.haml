@@ -7,11 +7,12 @@
     %th
 
   - @messages.conversations.each do |message|
-    %tr
-      %td= message.from.name
-      %td= message.topic
-      %td= message.body
-      %td= link_to 'Reply', conversation_path(message.id)
-      %td= link_to 'Archive', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if current_user.id != message.sent_messageable_id && !message.opened
+      %tr
+        %td= message.from.name
+        %td= message.topic
+        %td= message.body
+        %td= link_to 'Reply', conversation_path(message.id)
+        %td= link_to 'Archive', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

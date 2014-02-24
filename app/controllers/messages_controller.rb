@@ -47,4 +47,11 @@ class MessagesController < ApplicationController
   def trash
     @messages = current_user.deleted_messages
   end
+
+  def mark_as_read
+    @message = current_user.messages.find_by_id(params[:id])
+    @message.opened = true
+    @message.save
+    redirect_to all_path
+  end
 end

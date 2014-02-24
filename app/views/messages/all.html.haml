@@ -1,10 +1,7 @@
-%h1 Inbox
+%h1 New
 = render 'inbox'
 
-%h1 Sent
+%h1 Old
 = render 'outbox'
-
-%p
-  = link_to 'Trash', trash_path
 
 = link_to t(:new_message), new_message_path

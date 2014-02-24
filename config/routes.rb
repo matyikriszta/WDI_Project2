@@ -9,7 +9,7 @@ Timdr::Application.routes.draw do
   get "messages/conversation/:id", to: 'messages#conversation', as: 'conversation' 
   get "/messages/outbox", to: 'messages#outbox', as: 'outbox'
   get "/messages/all", to: 'messages#all', as: 'all'
-  get "/messages/trash", to: 'messages#trash', as: 'trash'
+  get "/messages/:id", to: 'messages#mark_as_read', as: 'mark_as_read'
 
   delete "messages/:id", to: 'messages#destroy_message', as: 'destroy_message'
 
