@@ -1,20 +1,10 @@
-%h2 All
+%h1 Inbox
+= render 'inbox'
 
-%table
-  %tr
-    %th Sender
-    %th Receiver
-    %th Content
-    %th
-    %th
-    %th
+%h1 Sent
+= render 'outbox'
 
-  - @messages.each do |message|
-    %tr
-      %td= message.from.name
-      / %td= message.to.name
-      %td= message.body
+%p
+  = link_to 'Trash', trash_path
 
-%br
-
-= link_to 'Back', messages_path
+= link_to t(:new_message), new_message_path

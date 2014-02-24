@@ -1,0 +1,17 @@
+%table
+  %tr
+    %th From
+    %th Topic 
+    %th Content
+    %th
+    %th
+
+  - @messages.conversations.each do |message|
+    %tr
+      %td= message.from.name
+      %td= message.topic
+      %td= message.body
+      %td= link_to 'Reply', conversation_path(message.id)
+      %td= link_to 'Archive', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br

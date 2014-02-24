@@ -18,9 +18,9 @@ class MessagesController < ApplicationController
   end
 
   def create_message
-    @to = User.find_by_email(params[:message][:to])
-    current_user.send_message(@to, params[:message][:topic], params[:message][:body])
-    redirect_to messages_path
+    @to = User.find_by_email(params[:acts_as_messageable_message][:to])
+    current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body])
+    redirect_to all_path
   end
 
   def conversation
@@ -36,15 +36,12 @@ class MessagesController < ApplicationController
 
   def destroy_message
     @message = current_user.messages.find(params[:id])
-    if @message.destroy
-      flash[:notice] = "All ok"
-    else
-      flash[:error] = "Fail"
-    end
-    redirect_to messages_path
-  end
-
-  def destroy_conversation
+    @message.conversation.destroy_all
+    #   flash[:notice] = "All ok"
+    # else
+    #   flash[:error] = "Fail"
+    # end
+    redirect_to all_path
   end
 
   def trash
