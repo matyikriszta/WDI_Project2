@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = current_user.received_messages
+    @users_matched = current_user.match
   end
 
 end
