@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.where(gender: current_user.get_preference).page(params[:page]).per(12)
   end
@@ -24,6 +25,5 @@ class UsersController < ApplicationController
 
   def dashboard
   end
-
 
 end

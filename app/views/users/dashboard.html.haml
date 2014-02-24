@@ -1,0 +1,17 @@
+.profile_dash
+  = image_tag('tim.jpg')
+  %ul#small
+    %li= current_user.name
+    %li= current_user.gender
+    %li= current_user.location
+
+.inbox
+  %h2 Messages
+  
+
+.likes
+  %h2 Likes
+
+.search
+  %h2 Search
+  = link_to 'Search', users_path

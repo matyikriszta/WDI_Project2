@@ -16,7 +16,9 @@ gem 'acts-as-taggable-on'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'acts-as-messageable', :git => 'git://github.com/hoczaj/acts-as-messageable.git'
 gem "geocoder"
+
 
 group :development, :test do
   gem 'pry-rails'

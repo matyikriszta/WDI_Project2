@@ -1,8 +1,21 @@
 Timdr::Application.routes.draw do
+
+  devise_for :users
+
+  get "/messages", to: 'messages#inbox', as: 'inbox'
+  get "/messages/new", to: 'messages#new_message', as: 'new_message'
+  post "/messages", to: 'messages#create_message', as: 'create_message'
+  post "/messages/reply/:id", to: 'messages#reply', as: 'reply'
+  get "messages/conversation/:id", to: 'messages#conversation', as: 'conversation' 
+  get "/messages/outbox", to: 'messages#outbox', as: 'outbox'
+  get "/messages/all", to: 'messages#all', as: 'all'
+  get "/messages/trash", to: 'messages#trash', as: 'trash'
+
+  delete "messages/:id", to: 'messages#destroy_message', as: 'destroy_message'
+
   resources :images
   resources :likes
   resources :messages
-  devise_for :users
   
   get "/users", to: 'users#index', as: 'users'
   get "/users/search", to: 'users#search', as: 'user_search'

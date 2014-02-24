@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/hoczaj/acts-as-messageable.git
+  revision: 809868fe66d53202b00a22029bf1d5ed73b9e061
+  specs:
+    acts-as-messageable (0.4.9)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      ancestry (>= 1.3.0)
+      railties (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,6 +40,8 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (3.0.1)
       rails (>= 3, < 5)
+    ancestry (2.0.0)
+      activerecord (>= 3.0.0)
     annotate (2.6.1)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -207,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-messageable!
   acts-as-taggable-on
   annotate
   better_errors
