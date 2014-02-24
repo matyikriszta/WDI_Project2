@@ -75,6 +75,17 @@ body {
   clear: both;
 }
 
+
+.left {
+  float: left;
+  width: 25%;
+}
+
+.tokenfield {
+  margin: 10px;
+  border: 1px solid #ddd; 
+}
+
 .inbox {
   background: #eee;
   margin-left: 32px;
@@ -131,13 +142,3 @@ body {
   width: 500px;
   height: 150px;
 }
-
-
-
-
-
-
-
-
-
-

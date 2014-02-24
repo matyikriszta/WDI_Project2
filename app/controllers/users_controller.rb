@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  authorize_resource
 
   def index
     @users = User.where(gender: current_user.get_preference).page(params[:page]).per(12)
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = current_user.received_messages
+    @users_matched = current_user.match
   end
 
 end
