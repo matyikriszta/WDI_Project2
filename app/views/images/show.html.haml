@@ -2,10 +2,11 @@
 
 %p
   %b User:
-  = @image.user
+  = @image.user.name
 %p
   %b Image:
   = @image.image
+  / = image_tag @image.image.detail.url
 %p
   %b Title:
   = @image.title
