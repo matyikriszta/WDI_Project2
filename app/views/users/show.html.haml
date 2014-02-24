@@ -1,5 +1,8 @@
 %h1= @user.name
-%img{src: '/assets/tim.jpg' }
+= get_profile_image(@user)
+-@user.images.each do |image|
+  =link_to image_tag(image.image.thumb.url), image
+  =link_to "set as profile image", set_image_path(image)
 %p= @user.email
 %p= @user.location
 %p= @user.interest_list

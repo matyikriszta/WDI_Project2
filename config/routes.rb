@@ -9,6 +9,7 @@ Timdr::Application.routes.draw do
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
   get "/tags", to: 'tags#index'
+  get '/set_default/:id', to: 'images#set_default', as: 'set_image'
   
   root to: 'home#index'
 
