@@ -44,6 +44,9 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def destroy_conversation
+  end
+
   def trash
     @messages = current_user.deleted_messages
   end

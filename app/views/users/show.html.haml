@@ -1,5 +1,7 @@
 %h1= @user.name
 %img{src: '/assets/tim.jpg' }
+%p= link_to 'Send Message', new_message_path
+%p= link_to 'Like'
 %p= @user.email
 %p= @user.location
 %p= @user.interest_list
@@ -9,5 +11,3 @@
 / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
 
 %p= @user.description
-
-%p= link_to 'Send Message', new_message_path
