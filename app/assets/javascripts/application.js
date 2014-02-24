@@ -51,7 +51,8 @@ $(function() {
     min: 18,
     max: 75,
     slide: function( event, ui ) {
-      $( "#age" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $( "#age_from" ).val( ui.values[ 0 ] );
+      $( "#age_to" ).val( ui.values[ 1 ] );      
     }
   });
 
