@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140223122909) do
+ActiveRecord::Schema.define(:version => 20140224182405) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
