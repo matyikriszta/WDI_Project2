@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :images
 
+  belongs_to :default_photo, :class_name => "Image", foreign_key: :profile_image_id
+
   # has_many :likes
   # has_many :has_liked, class_name: 'Like', foreign_key: :liked_user_id 
 

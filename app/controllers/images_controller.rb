@@ -32,6 +32,13 @@ class ImagesController < ApplicationController
     end
   end
 
+  def set_default
+    current_user.profile_image_id = params[:id]
+    current_user.save
+    redirect_to user_profile_path(current_user)
+  end
+
+
   # GET /images/1/edit
   def edit
     @image = Image.find(params[:id])
