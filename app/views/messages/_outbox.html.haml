@@ -1,0 +1,16 @@
+%table
+  %tr
+    %th To
+    %th Topic
+    %th Content
+    %th
+    %th
+
+  - @messages.conversations.each do |message|
+    - if current_user.id == message.sent_messageable_id || message.opened
+      %tr
+        %td= message.to.name
+        %td= message.topic
+        %td= message.body
+
+%br
