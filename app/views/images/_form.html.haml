@@ -5,8 +5,7 @@
       %ul
         - @image.errors.full_messages.each do |msg|
           %li= msg
-
-  
+          
   .field
     = f.label :image
     = f.file_field :image
