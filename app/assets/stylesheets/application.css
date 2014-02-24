@@ -45,3 +45,13 @@
 .pagination {
   clear: both;
 }
+
+.left {
+  float: left;
+  width: 25%;
+}
+
+.tokenfield {
+  margin: 10px;
+  border: 1px solid #ddd; 
+}
