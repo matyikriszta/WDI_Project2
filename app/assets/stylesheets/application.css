@@ -159,6 +159,11 @@ body {
   width: 300px;
 }
 
+#message_body a {
+  text-decoration: none;
+  color: black;
+} 
+
 #message_from, #message_topic, #message_body {
   font-family: 'Inconsolata', sans-serif;
   font-size: 80%;
