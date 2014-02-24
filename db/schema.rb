@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140223122909) do
+ActiveRecord::Schema.define(:version => 20140224182405) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20140223122909) do
     t.string   "education"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "profile_image_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

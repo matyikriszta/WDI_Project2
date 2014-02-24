@@ -75,6 +75,17 @@ body {
   clear: both;
 }
 
+
+.left {
+  float: left;
+  width: 25%;
+}
+
+.tokenfield {
+  margin: 10px;
+  border: 1px solid #ddd; 
+}
+
 .inbox {
   margin-left: 32px;
   vertical-align: top;
@@ -175,15 +186,3 @@ body {
   font-family: 'Inconsolata', sans-serif;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,21 +1,7 @@
-%h1 Listing likes
+%h1 Matches
 
-%table
-  %tr
-    %th User
-    %th Liked user
-    %th
-    %th
-    %th
+= render @user_matches if @user_matches
 
-  - @likes.each do |like|
-    %tr
-      %td= like.user_id
-      %td= like.liked_user_id
-      %td= link_to 'Show', like
-      %td= link_to 'Edit', edit_like_path(like)
-      %td= link_to 'Destroy', like, :method => :delete, :data => { :confirm => 'Are you sure?' }
+/ %h1 Users you like
 
-%br
-
-= link_to 'New Like', new_like_path
+/ = render @users_liked

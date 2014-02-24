@@ -11,6 +11,8 @@
   %b Title:
   = @image.title
 
+= link_to 'Like', create_like_path(user.id)
+
 = link_to 'Edit', edit_image_path(@image)
 \|
 = link_to 'Back', images_path
