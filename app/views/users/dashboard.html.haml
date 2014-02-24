@@ -4,6 +4,7 @@
     %li= current_user.name
     %li= current_user.gender
     %li= current_user.location
+    %li= current_user.age
 
 .inbox
   %h2 Messages
@@ -13,5 +14,4 @@
   %h2 Likes
 
 .search
-  %h2 Search
-  = link_to 'Search', users_path
+  =render 'shared/search'
