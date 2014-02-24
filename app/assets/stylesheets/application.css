@@ -14,13 +14,23 @@
  *= require_tree .
  */
 
-#nav {
-  width: 960px;
+body {
+  width: 1366px;
   margin: 0 auto;
 }
 
+#nav {
+  margin-top: 10px;
+  width: 1366px;
+  float: right;
+}
+
+.login {
+  margin-left: 232px;
+}
+
 #content {
-  width: 960px;
+  width: 1366px;
   margin: 0 auto;
 }
 
@@ -67,10 +77,10 @@
 
 .inbox {
   background: #eee;
-  margin-left: 11px;
+  margin-left: 32px;
   vertical-align: top;
   display: inline-block;
-  width: 360px;
+  width: 500px;
   height: 600px;
 }
 
@@ -79,7 +89,7 @@
   float: right;
   vertical-align: top;
   display: inline-block;
-  width: 360px;
+  width: 500px;
   height: 300px;
 
 }
