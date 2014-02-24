@@ -1,4 +1,4 @@
-= form_for @message do |f|
+= form_for @message :url => messages_path, :method => :post do |f|
   - if @message.errors.any?
     #error_explanation
       %h2= "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
@@ -7,16 +7,17 @@
           %li= msg
 
   .field
-    = f.label :sender_id
-    = f.number_field :sender_id
+    = f.label :to
+    = f.email_field :to
   .field
-    = f.label :receiver_id
-    = f.number_field :receiver_id
+    = f.label :topic
+    = f.text_field :topic
   .field
-    = f.label :content
-    = f.text_area :content
+    = f.label :body
+    = f.text_area :body
   .field
     = f.label :viewed
     = f.check_box :viewed
   .actions
-    = f.submit 'Save'
+    = f.submit 'Send'
+    = f.reset 'Cancel'

@@ -2,10 +2,15 @@ class User < ActiveRecord::Base
   acts_as_voter
   acts_as_votable
 
+  acts_as_messageable :table_name => "messages",
+                      :required   => [:topic, :body],
+                      :class_name => "ActsAsMessageable::Message",
+                      :dependent  => :nullify
+
+  # has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
+  # has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
+
   has_many :images
-  
-  has_many :messages_as_sender, class_name: 'Message', foreign_key: :sender_id
-  has_many :messages_as_receiver, class_name: 'Message', foreign_key: :receiver_id
 
   # has_many :likes
   # has_many :has_liked, class_name: 'Like', foreign_key: :liked_user_id 
@@ -16,7 +21,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :location, :interest_list, :gender, :preference, :dob, :description
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :location, :interest_list, :gender, :preference, :dob, :description, :body, :topic
   # attr_accessible :title, :body
 
   geocoded_by :location

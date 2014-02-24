@@ -1,0 +1,19 @@
+.profile_dash
+  = image_tag('tim.jpg')
+  %ul#small
+    %li= current_user.name
+    %li= current_user.gender
+    %li= current_user.location
+    %li= current_user.age
+
+.inbox
+  %h2#incoming New messages
+  = render 'messages/inbox'
+  = link_to 'Messages', all_path
+  
+
+.likes
+  %h2 Likes
+
+.search
+  =render 'shared/search'

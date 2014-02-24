@@ -14,8 +14,23 @@
  *= require_tree .
  */
 
-#main {
-  width: 960px;
+body {
+  width: 1366px;
+  margin: 0 auto;
+}
+
+#nav {
+  margin-top: 10px;
+  width: 1366px;
+  float: right;
+}
+
+.login {
+  margin-left: 232px;
+}
+
+#content {
+  width: 1366px;
   margin: 0 auto;
 }
 
@@ -33,7 +48,7 @@
 .user {
   margin: 20px;
   height: 150px;
-  width: 280px;
+  width: 260px;
   float: left;
 }
 
@@ -42,9 +57,24 @@
   list-style: none;
 }
 
+.profile_dash {
+  width: 200px;
+  display: inline-block;
+}
+
+.profile_dash img {
+  width: 200px;
+  border-radius: 100%;
+}
+
+.profile_dash ul {
+  list-style: none;
+}
+
 .pagination {
   clear: both;
 }
+
 
 .left {
   float: left;
@@ -55,3 +85,61 @@
   margin: 10px;
   border: 1px solid #ddd; 
 }
+
+.inbox {
+  background: #eee;
+  margin-left: 32px;
+  vertical-align: top;
+  display: inline-block;
+  width: 500px;
+  height: 600px;
+}
+
+.likes {
+  background: #eee;
+  float: right;
+  vertical-align: top;
+  display: inline-block;
+  width: 500px;
+  height: 300px;
+
+}
+
+.search {
+  margin-top: -270px;
+  vertical-align: bottom;
+  background: #eee;
+  float: right;
+  display: inline-block;
+  width: 360px;
+  height: 270px;
+}
+
+.chat {
+  width: 500px;
+}
+
+.sender, .receiver {
+  max-width: 300px;
+  clear: both;
+  border-radius: 5px;
+  margin: 5px 0 5px 0;
+  padding: 15px 10px 15px 10px;
+}
+
+.sender {
+  float: right;
+  background: #BCE3FF;
+  text-align: right;
+}
+
+.response {
+  clear: both;
+  border: 1px solid black;
+}
+
+#message_field {
+  width: 500px;
+  height: 150px;
+}
+

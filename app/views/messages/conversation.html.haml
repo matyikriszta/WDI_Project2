@@ -1,0 +1,15 @@
+.chat
+  - @message.conversation.each do |message| 
+    - if current_user.id == message.sent_messageable_id
+      .sender
+        = message.body
+    - else
+      .receiver
+        = message.body
+
+
+= render 'reply'
+
+= link_to 'Mark as read', mark_as_read_path
+
+= link_to 'Back', all_path

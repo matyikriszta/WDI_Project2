@@ -1,83 +1,58 @@
 class MessagesController < ApplicationController
+  authorize_resource
   # GET /messages
   # GET /messages.json
-  def index
-    @messages = Message.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @messages }
-    end
+  def inbox
+    @messages = current_user.received_messages
   end
 
-  # GET /messages/1
-  # GET /messages/1.json
-  def show
-    @message = Message.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @message }
-    end
+  def outbox
+    @messages = current_user.sent_messages
   end
 
-  # GET /messages/new
-  # GET /messages/new.json
-  def new
-    @message = Message.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @message }
-    end
+  def all
+    @messages = current_user.messages
   end
 
-  # GET /messages/1/edit
-  def edit
-    @message = Message.find(params[:id])
+  def new_message
+    @message = ActsAsMessageable::Message.new
   end
 
-  # POST /messages
-  # POST /messages.json
-  def create
-    @message = Message.new(params[:message])
-
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render json: @message, status: :created, location: @message }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+  def create_message
+    @to = User.find_by_email(params[:acts_as_messageable_message][:to])
+    current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body])
+    redirect_to all_path
   end
 
-  # PUT /messages/1
-  # PUT /messages/1.json
-  def update
-    @message = Message.find(params[:id])
-
-    respond_to do |format|
-      if @message.update_attributes(params[:message])
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+  def conversation
+    @message = current_user.messages.find_by_id(params[:id])
+    render :conversation
   end
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
-  def destroy
-    @message = Message.find(params[:id])
-    @message.destroy
+  def reply
+    @message = current_user.messages.find_by_id(params[:id])
+    @message.reply(params[:topic], params[:body])
+    redirect_to conversation_path(@message)
+  end
 
-    respond_to do |format|
-      format.html { redirect_to messages_url }
-      format.json { head :no_content }
-    end
+  def destroy_message
+    @message = current_user.messages.find(params[:id])
+    @message.conversation.destroy_all
+    #   flash[:notice] = "All ok"
+    # else
+    #   flash[:error] = "Fail"
+    # end
+    redirect_to all_path
+  end
+
+  def trash
+    @messages = current_user.deleted_messages
+  end
+
+  def mark_as_read
+    @message = current_user.messages.find_by_id(params[:id])
+    @message.opened = true
+    @message.save
+    redirect_to all_path
   end
 end

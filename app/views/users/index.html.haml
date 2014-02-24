@@ -1,16 +1,8 @@
 %h1 Users
 
 %nav.left
-  = form_tag '/users/search', {method: :get} do
-    = text_field_tag :distance, params[:distance], { placeholder: 'distance' }
-    #distance_slider
-
-    = text_field_tag :interest_list, params[:interest_list], { placeholder: 'interests', class: 'tokenfield' }
-
-    = submit_tag :submit, { value: 'Search' }  
-
-
-
+  =render 'shared/search'
+  
 = render @users
 
 =paginate @users

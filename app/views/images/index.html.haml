@@ -2,7 +2,6 @@
 
 %table
   %tr
-    %th User
     %th Image
     %th Title
     %th
@@ -11,7 +10,6 @@
 
   - @images.each do |image|
     %tr
-      %td= image.user
       %td= image.image
       %td= image.title
       %td= link_to 'Show', image
