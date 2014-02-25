@@ -15,13 +15,13 @@
  */
 
 body {
-  width: 1366px;
+  width: 1240px;
   margin: 0 auto;
 }
 
 #nav {
   margin-top: 10px;
-  width: 1366px;
+  width: 1240px;
   float: right;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 #content {
-  width: 1366px;
+  width: 1240px;
   margin: 0 auto;
 }
 
@@ -87,11 +87,10 @@ body {
 }
 
 .inbox {
-  background: #eee;
   margin-left: 32px;
   vertical-align: top;
   display: inline-block;
-  width: 500px;
+  width: 450px;
   height: 600px;
 }
 
@@ -111,7 +110,7 @@ body {
   background: #eee;
   float: right;
   display: inline-block;
-  width: 360px;
+  width: 500px;
   height: 270px;
 }
 
@@ -128,19 +127,77 @@ body {
 }
 
 .sender {
+  font-family: 'Inconsolata', sans-serif;
   float: right;
   background: #BCE3FF;
   text-align: right;
 }
 
 .response {
+  font-family: 'Inconsolata', sans-serif;
   clear: both;
-  border: 1px solid black;
 }
 
 #message_field {
   width: 500px;
   height: 150px;
+}
+
+/*DASH MESSAGES*/
+
+#incoming {
+  margin-left: 20px;
+  font-family: 'Inconsolata', sans-serif;
+}
+
+#message_from {
+  margin: 0 0 20px 20px;
+  display: inline-block;
+  width: 100px;
+}
+
+#message_from img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+#message_body {
+  margin-left: 20px;
+  vertical-align: top;
+  display: inline-block;
+  width: 300px;
+}
+
+#message_body a {
+  text-decoration: none;
+  color: black;
+} 
+
+#message_from, #message_topic, #message_body {
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+
+#dash_new_message {
+  margin-top: 20px;
+  text-align: right;
+  font-family: 'Inconsolata', sans-serif;
+
+}
+
+/*DASH LIKES*/
+
+#likes {
+  margin-left: 20px;
+  font-family: 'Inconsolata', sans-serif;
+}
+
+/*DASH SEARCH*/
+
+#search {
+  margin-left: 20px;
+  font-family: 'Inconsolata', sans-serif;
 }
 
 

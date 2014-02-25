@@ -7,14 +7,16 @@
     %li= current_user.age
 
 .inbox
-  %h2#incoming New messages
-  = render 'messages/inbox'
-  = link_to 'Messages', all_path
+  %h2#incoming Fetching messages...
+  = render 'messages/dash'
+  #dash_new_message
+    = link_to 'Messages', all_path
   
 
 .likes
-  %h2 Likes
+  %h2#likes Likes
   =render @users_matched
 
 .search
+  %h2#search Search
   =render 'shared/search'

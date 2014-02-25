@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  authorize_resource
+  # authorize_resource
 
   def index
     @users = User.where(gender: current_user.get_preference).page(params[:page]).per(12)
