@@ -3,13 +3,13 @@ Timdr::Application.routes.draw do
   devise_for :users
 
   get "/messages", to: 'messages#inbox', as: 'inbox'
-  get "/messages/new", to: 'messages#new_message', as: 'new_message'
+  get "/messages/new/:id", to: 'messages#new_message', as: 'new_message'
   post "/messages", to: 'messages#create_message', as: 'create_message'
   post "/messages/reply/:id", to: 'messages#reply', as: 'reply'
   get "messages/conversation/:id", to: 'messages#conversation', as: 'conversation' 
   get "/messages/outbox", to: 'messages#outbox', as: 'outbox'
   get "/messages/all", to: 'messages#all', as: 'all'
-  get "/messages/trash", to: 'messages#trash', as: 'trash'
+  get "/messages/:id", to: 'messages#mark_as_read', as: 'mark_as_read'
 
   delete "messages/:id", to: 'messages#destroy_message', as: 'destroy_message'
 
@@ -21,7 +21,11 @@ Timdr::Application.routes.draw do
   get "/users/search", to: 'users#search', as: 'user_search'
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
+  get "/update_membership", to: 'users#update_membership', as: 'update_membership'
   get "/tags", to: 'tags#index'
+
+  post "users/like/:id", to: 'likes#create_like', as: 'create_like'
+  get '/set_default/:id', to: 'images#set_default', as: 'set_image'
   
   root to: 'home#index'
 

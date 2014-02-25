@@ -1,0 +1,8 @@
+- @messages.conversations.each do |message|
+  - if current_user.id != message.sent_messageable_id && !message.opened
+    #dash_message
+      #message_from
+        = link_to image_tag('tim.jpg')
+      #message_body
+        %h2= link_to message.from.name, conversation_path(message.id)
+        %p= link_to message.body, conversation_path(message.id)
