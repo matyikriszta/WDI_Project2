@@ -1,21 +1,25 @@
-%h1= @user.name
 
-= get_profile_image(@user)
--@user.images.each do |image|
-  =link_to image_tag(image.image.thumb.url), image
-  =link_to "set as profile image", set_image_path(image)
+.wrap
+  %h1= @user.name
 
-%p= link_to 'Send Message', new_message_path
-%p= link_to 'Like'
-%p= @user.age
-%p= @user.email
-%p= @user.location
-%p= @user.interest_list
-%p Looking for: #{@user.preference}
+  %p
+  = get_profile_image(@user)
+  -@user.images.each do |image|
+    =link_to image_tag(image.image.thumb.url), image
+    =link_to "set as profile image | ", set_image_path(image)
+    = link_to "Delete", new_message_path
 
-%p= @user.location
-/ %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
+  %p= link_to 'Send Message', new_message_path
+  %p= link_to 'Like'
+  %p= @user.age
+  %p= @user.email
+  %p= @user.location
+  %p= @user.interest_list
+  %p Looking for: #{@user.preference}
 
-%p= @user.description
+  %p= @user.location
+  / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
 
-= link_to 'Like', create_like_path(@user.id), method: :post
+  %p= @user.description
+
+  = link_to 'Like', create_like_path(@user.id), method: :post
