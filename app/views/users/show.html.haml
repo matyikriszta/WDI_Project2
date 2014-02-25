@@ -6,7 +6,7 @@
   =link_to "set as profile image", set_image_path(image)
 
 %p= link_to 'Send Message', new_message_path
-%p= link_to 'Like'
+%p= link_to 'Like', create_like_path(@user.id), method: :post
 %p= @user.age
 %p= @user.email
 %p= @user.location
@@ -17,5 +17,3 @@
 / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
 
 %p= @user.description
-
-= link_to 'Like', create_like_path(@user.id), method: :post

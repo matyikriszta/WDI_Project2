@@ -15,6 +15,7 @@
  */
 
 body {
+  border: 1px solid black;
   width: 1240px;
   margin: 0 auto;
 }
@@ -153,7 +154,7 @@ body {
 #message_from {
   margin: 0 0 20px 20px;
   display: inline-block;
-  width: 100px;
+  width: 80px;
 }
 
 #message_from img {
@@ -198,6 +199,71 @@ body {
 #search {
   margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
+}
+
+/*INBOX MESSAGES*/
+
+.message_from {
+  margin: 0 0 20px 20px;
+  display: inline-block;
+  width: 80px;
+}
+
+.message_from img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.message_body {
+  margin-left: 20px;
+  vertical-align: top;
+  display: inline-block;
+  width: 300px;
+}
+
+.message_body a {
+  text-decoration: none;
+  color: black;
+} 
+
+.message_from, .message_topic, .message_body {
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+
+.dash_new_message {
+  margin-top: 20px;
+  text-align: right;
+  font-family: 'Inconsolata', sans-serif;
+
+}
+
+/*USERS NAV*/
+
+#nav_left {
+  float: left;
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  max-height: 1000px;
+}
+
+/*USERS RESULT*/
+
+#search_result {
+  display: inline-block;
+  border: 1px solid black;
+  width: 900px;
+  float: right;
+}
+
+#pagination {
+  padding: 20px 0;
+  border: 1px solid black;
+  text-align: center;
+  width: 900px;
+  float: right;
 }
 
 
