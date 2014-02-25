@@ -18,7 +18,7 @@
   - if current_user.find_voted_items.map(&:id).include?(@user.id)
     %p You've liked this user
   - else
-    = button_to 'Like', create_like_path(@user.id), method: :post
+    = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
 
   %p= @user.age
   %p= @user.email
