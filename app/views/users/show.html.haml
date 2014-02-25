@@ -1,14 +1,12 @@
-
 .wrap
   %h1= @user.name
 
-
   %p
-  = get_profile_image(@user)
-  -@user.images.each do |image|
-    =link_to image_tag(image.image.thumb.url), image
-    =link_to "set as profile image | ", set_image_path(image)
-    = link_to "Delete", new_message_path
+    = get_profile_image(@user)
+    -@user.images.each do |image|
+      =link_to image_tag(image.image.thumb.url), image
+      =link_to "set as profile image | ", set_image_path(image)
+      = link_to "Delete", new_message_path
 
 %p= link_to 'Send Message', new_message_path
 %p= link_to 'Like', create_like_path(@user.id), method: :post
@@ -19,4 +17,3 @@
 %p Looking for: #{@user.preference}
 
 %p= @user.description
-  / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}

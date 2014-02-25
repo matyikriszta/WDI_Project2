@@ -1,9 +1,9 @@
 .profile_dash
-  = image_tag('tim.jpg')
+  = image_tag('green.jpg')
   - if current_user.membership == 'basic'
-    =link_to 'Upgrade to premium', update_membership_path
+    =link_to 'Upgrade to premium', update_membership_path, class: 'membership_button'
   - else
-    =link_to 'Downgrade to basic', update_membership_path
+    =link_to 'Downgrade to basic', update_membership_path, class: 'membership_button' 
 
   %ul#small
     %li= current_user.name
@@ -11,16 +11,21 @@
     %li= current_user.location
     %li= current_user.age
 
+  - if current_user
+    = link_to 'Go to Profile', user_profile_path(current_user)
+
 .inbox
   %h2#incoming Fetching messages...
   = render 'messages/dash'
   #dash_new_message
     = link_to 'Messages', all_path
   
-
-.likes
-  %h2#likes Matches
-  =render @users_matched
+.matches
+  %h2#matches Matches
+  - @users_matched.each do |user|
+    #match_with
+      =link_to( get_profile_image(user), user_profile_path(user) )
+      %h2= link_to user.name, user_profile_path(user)
 
 .search
   %h2#search Search
