@@ -17,6 +17,12 @@
 body {
   width: 1240px;
   margin: 0 auto;
+  font-family: verdana;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
 }
 
 h2 {
@@ -86,10 +92,19 @@ h2 {
   width: 25%;
 }
 
-.tokenfield {
-  margin: 10px;
-  border: 1px solid #ddd; 
+input {
+  padding: 10px;
 }
+
+.tokenfield {
+  border: 1px solid #ddd; 
+  padding: 10px;
+}
+
+.token-input {
+  font-size: 16px;
+}
+
 
 .inbox {
   margin-left: 32px;
@@ -105,7 +120,6 @@ h2 {
   display: inline-block;
   width: 500px;
   border: 1px solid black;
-
 }
 
 .search {
@@ -119,6 +133,7 @@ h2 {
 
 .chat {
   width: 500px;
+  margin: 0 auto;
 }
 
 .sender, .receiver {
@@ -136,6 +151,10 @@ h2 {
   text-align: right;
 }
 
+.receiver {
+  background: #8CC99F;
+}
+
 .response {
   font-family: 'Inconsolata', sans-serif;
   clear: both;
@@ -143,7 +162,7 @@ h2 {
 
 #message_field {
   width: 500px;
-  height: 150px;
+  padding: 0 0 30px;
 }
 
 /*DASH MESSAGES*/
@@ -302,12 +321,22 @@ li {
 
 /*USERS NAV*/
 
-#nav_left {
-  float: left;
+#nav_left, .search {
+float: left;
+display: inline-block;
+border: 1px solid black;
+width: 290px;
+max-height: 1000px;
+padding: 10px 20px 10px 10px;
+}
+
+.search {
+  margin-top: -270px;
+  vertical-align: bottom;
+  background: #eee;
+  float: right;
   display: inline-block;
-  border: 1px solid black;
-  width: 300px;
-  max-height: 1000px;
+  width: 500px;
 }
 
 /*USERS RESULT*/
