@@ -6,4 +6,13 @@ module ApplicationHelper
       image_tag('tim.jpg')
     end
   end
+
+  def upgrade_button
+    if current_user.membership == 'basic'
+      link_to 'Upgrade to premium', update_membership_path
+    else
+      link_to 'Downgrade to basic', update_membership_path
+    end
+  end
+
 end

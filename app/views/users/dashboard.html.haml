@@ -1,9 +1,6 @@
 .profile_dash
   = image_tag('tim.jpg')
-  - if current_user.membership == 'basic'
-    =link_to 'Upgrade to premium', update_membership_path
-  - else
-    =link_to 'Downgrade to basic', update_membership_path
+  = upgrade_button
 
   %ul#small
     %li= current_user.name
