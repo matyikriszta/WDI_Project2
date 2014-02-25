@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  authorize_resource
+  load_and_authorize_resource
   # GET /messages
   # GET /messages.json
   def inbox
@@ -43,10 +43,6 @@ class MessagesController < ApplicationController
     #   flash[:error] = "Fail"
     # end
     redirect_to all_path
-  end
-
-  def trash
-    @messages = current_user.deleted_messages
   end
 
   def mark_as_read
