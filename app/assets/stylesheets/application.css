@@ -136,7 +136,6 @@ body {
 .response {
   font-family: 'Inconsolata', sans-serif;
   clear: both;
-  border: 1px solid black;
 }
 
 #message_field {
@@ -186,3 +185,22 @@ body {
   font-family: 'Inconsolata', sans-serif;
 
 }
+
+/*DASH LIKES*/
+
+#likes {
+  margin-left: 20px;
+  font-family: 'Inconsolata', sans-serif;
+}
+
+/*DASH SEARCH*/
+
+#search {
+  margin-left: 20px;
+  font-family: 'Inconsolata', sans-serif;
+}
+
+
+
+
+
