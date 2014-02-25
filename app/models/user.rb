@@ -67,6 +67,16 @@ class User < ActiveRecord::Base
     match.include?(user)
   end
 
+  def toggle_membership
+    if self.membership == 'basic'
+      self.membership = 'premium'
+    else
+      self.membership = 'basic'
+    end
+
+    self.save
+  end
+
   private
   def set_membership_to_basic
     self.membership ||= "basic"

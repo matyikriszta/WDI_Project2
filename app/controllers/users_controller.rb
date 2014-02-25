@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def search
-
     if params['distance'].blank?
       @users =  User.where(gender: current_user.get_preference).page(params[:page]).per(12)
     else
@@ -25,7 +24,6 @@ class UsersController < ApplicationController
     date_to = params[:age_to].to_i.years.ago
 
     @users = @users.where('dob >= ? AND dob <= ?', date_to, date_from).page(params[:page]).per(12)
-    # raise
     render :index
   end
 
@@ -36,6 +34,11 @@ class UsersController < ApplicationController
   def dashboard
     @messages = current_user.received_messages
     @users_matched = current_user.match
+  end
+
+  def update_membership
+    current_user.toggle_membership
+    redirect_to dashboard_path
   end
 
 end

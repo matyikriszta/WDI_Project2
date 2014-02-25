@@ -2,12 +2,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    if user.membership = 'basic'
-      can [:index, :show, :search, :dashboard], User
-      can [:mark_as_read, :destroy_message, :reply, :conversation, :create_message, :new_message, :all, :outbox, :inbox], Message
-    elsif user.membership = 'premium'
+    user ||= User.new
+    if user.membership == 'premium'
       can :manage, :all
+    elsif user.membership == 'basic'
+      cannot :manage, ActsAsMessageable
+      can :manage, User
     end
+  
   end
+
 end
