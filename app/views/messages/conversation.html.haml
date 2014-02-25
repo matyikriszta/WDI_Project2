@@ -1,5 +1,5 @@
 .chat
-  - @message.conversation.each do |message| 
+  - @message.conversation.sort { |x,y| x <=> y }.each do |message| 
     - if current_user.id == message.sent_messageable_id
       .sender
         = message.body
