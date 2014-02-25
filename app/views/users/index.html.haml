@@ -1,8 +1,8 @@
-%h1 Users
-
-%nav.left
+#nav_left
   =render 'shared/search'
   
-= render @users
+#search_result
+  = render @users
 
-=paginate @users
+#pagination
+  =paginate @users

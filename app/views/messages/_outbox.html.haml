@@ -1,16 +1,10 @@
-%table
-  %tr
-    %th To
-    %th Topic
-    %th Content
-    %th
-    %th
-
-  - @messages.conversations.each do |message|
-    - if current_user.id == message.sent_messageable_id || message.opened
-      %tr
-        %td= message.to.name
-        %td= message.topic
-        %td= message.body
-
-%br
+- @messages.conversations.each do |message|
+  - if current_user.id == message.sent_messageable_id || message.opened
+    .message_message
+      .message_from
+        = image_tag('tim.jpg')
+      .message_body
+        %h2= message.to.name
+        %p= truncate(message.body, length: 120)
+      .delete_link
+        = link_to 'Delete', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -94,8 +94,7 @@ body {
   height: 600px;
 }
 
-.likes {
-  background: #eee;
+.matches {
   float: right;
   vertical-align: top;
   display: inline-block;
@@ -153,7 +152,7 @@ body {
 #message_from {
   margin: 0 0 20px 20px;
   display: inline-block;
-  width: 100px;
+  width: 80px;
 }
 
 #message_from img {
@@ -163,7 +162,7 @@ body {
 }
 
 #message_body {
-  margin-left: 20px;
+  margin-left: 40px;
   vertical-align: top;
   display: inline-block;
   width: 300px;
@@ -186,11 +185,28 @@ body {
 
 }
 
-/*DASH LIKES*/
+/*DASH MATCHES*/
 
-#likes {
+#matches {
   margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
+}
+#match_with {
+  margin-left: 20px;
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+#match_with img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+#match_with a {
+  text-decoration: none;
+  color: black;
 }
 
 /*DASH SEARCH*/
@@ -198,6 +214,90 @@ body {
 #search {
   margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
+}
+
+/*DASH PROFILE*/
+
+.profile_dash {
+  font-family: 'Inconsolata', sans-serif;
+}
+
+.profile_dash a {
+  font-family: 'Inconsolata', sans-serif;
+  text-decoration: none;
+
+}
+
+.membership_button {
+  padding: 10px 6px;
+  border-radius: 2px;
+  color: white;
+  background: #00b355;
+}
+
+/*INBOX MESSAGES*/
+
+.message_from {
+  margin: 0 0 20px 20px;
+  display: inline-block;
+  width: 80px;
+}
+
+.message_from img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.message_body {
+  margin-left: 20px;
+  vertical-align: top;
+  display: inline-block;
+  width: 300px;
+}
+
+.message_body a {
+  text-decoration: none;
+  color: black;
+} 
+
+.message_from, .message_topic, .message_body {
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+
+.dash_new_message {
+  margin-top: 20px;
+  text-align: right;
+  font-family: 'Inconsolata', sans-serif;
+
+}
+
+/*USERS NAV*/
+
+#nav_left {
+  float: left;
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  max-height: 1000px;
+}
+
+/*USERS RESULT*/
+
+#search_result {
+  display: inline-block;
+  border: 1px solid black;
+  width: 900px;
+  float: right;
+}
+
+#pagination {
+  padding: 20px 0;
+  border: 1px solid black;
+  text-align: center;
+  width: 900px;
+  float: right;
 }
 
 

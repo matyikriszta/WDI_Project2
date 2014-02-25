@@ -4,10 +4,13 @@
   = text_field_tag :age_to, '35'
   #age_slider  
 
+  %p Interest
   = text_field_tag :interest_list, params[:interest_list], { placeholder: 'interests', class: 'tokenfield' }
 
+  %p Distance
   = text_field_tag :distance, '10 miles', { placeholder: 'distance' }
   #distance_slider
-
+  
+  %p Membership
   = select_tag :membership, options_for_select(['all', 'basic', 'premium'])
   = submit_tag :submit, { value: 'Search' }  
