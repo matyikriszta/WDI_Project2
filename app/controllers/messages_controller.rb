@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  authorize_resource
+  # authorize_resource
   # GET /messages
   # GET /messages.json
   def inbox
@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   end
 
   def create_message
-    @to = User.find_by_email(params[:acts_as_messageable_message][:to])
+    @to = User.find(params[:acts_as_messageable_message][:to])
     current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body])
     redirect_to all_path
   end
