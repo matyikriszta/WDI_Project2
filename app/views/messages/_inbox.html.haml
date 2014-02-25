@@ -2,10 +2,10 @@
   - if current_user.id != message.sent_messageable_id && !message.opened
     .message_message
       .message_from
-        = image_tag('tim.jpg')
+        = image_tag('green.jpg')
       .message_body
-        %h2= message.from.name
-        %p= truncate(message.body, length: 120)
+        %h3= message.from.name
+        %p= truncate(message.body, length: 100)
       .reply_link
         = link_to 'Reply', conversation_path(message.id)
       .delete_link

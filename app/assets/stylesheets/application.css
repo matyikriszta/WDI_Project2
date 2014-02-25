@@ -19,6 +19,11 @@ body {
   margin: 0 auto;
 }
 
+h2 {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 0 0 20px 20px;
+}
+
 #nav {
   margin-top: 10px;
   width: 1240px;
@@ -99,18 +104,17 @@ body {
   vertical-align: top;
   display: inline-block;
   width: 500px;
-  height: 300px;
+  border: 1px solid black;
 
 }
 
 .search {
-  margin-top: -270px;
+  border: 1px solid black;
+  margin-top: -360px;
   vertical-align: bottom;
-  background: #eee;
   float: right;
   display: inline-block;
   width: 500px;
-  height: 270px;
 }
 
 .chat {
@@ -222,17 +226,40 @@ body {
   font-family: 'Inconsolata', sans-serif;
 }
 
-.profile_dash a {
-  font-family: 'Inconsolata', sans-serif;
-  text-decoration: none;
+#profile_dash_rest {
+  margin-top: 40px;
+  display: block;
+}
 
+.profile_dash a {
+  text-decoration: none;
+  color: #00b355;
+}
+
+#profile_dash_button {
+  margin: 0 auto; 
+}
+
+#profile_dash_button a {
+  margin: 0 auto;
+  color: #ffffff; 
 }
 
 .membership_button {
-  padding: 10px 6px;
+  margin-top: 20px;
+  padding: 10px 27px;
   border-radius: 2px;
   color: white;
   background: #00b355;
+}
+
+ul {
+  margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
+}
+
+li {
+  padding: 0 0 10px 0;
 }
 
 /*INBOX MESSAGES*/

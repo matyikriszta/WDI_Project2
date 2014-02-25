@@ -6,5 +6,7 @@
       .message_body
         %h2= message.to.name
         %p= truncate(message.body, length: 120)
+      .reply_link
+        = link_to 'Reply', conversation_path(message.id)
       .delete_link
         = link_to 'Delete', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
