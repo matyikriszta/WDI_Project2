@@ -1,6 +1,7 @@
 .wrap
   %p
-    = get_profile_image(@user)
+    #profile_img
+      = get_profile_image(@user)
     -@user.images.each do |image|
       =link_to image_tag(image.image.thumb.url), image
       - if  @user == current_user
