@@ -24,6 +24,7 @@ gem 'fancybox-rails'
 gem 'font-awesome-rails'
 
 
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-debugger'

@@ -3,7 +3,7 @@
   %p
     = get_profile_image(@user)
     -@user.images.each do |image|
-      =link_to image_tag(image.image.thumb.url), image.image.url, class: :fancybox
+      =link_to image_tag(image.image.thumb.url), image.image.detail.url, class: :fancybox
       =link_to set_image_path(image) do
         %i.fa.fa-picture-o
       =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
