@@ -391,7 +391,7 @@ input[type='submit'], .button {
   display: none;
 }
 
-#message_form {
+#message_form, #image_form {
   display: none;
   background-color: #fff;
   padding: 20px;
