@@ -77,7 +77,9 @@ $(function() {
 
   $(".best_in_place").best_in_place();
 
+  $('#upload_image').replaceWith('<a href=#image_form rel="leanModal" class="button">Upload Image</a>')
   $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+
   $("a[rel=leanModal]").leanModal();
 
   $(".fancybox").fancybox();
