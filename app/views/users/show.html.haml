@@ -24,8 +24,9 @@
       You'll need to upgrade to send this user a message.
       = upgrade_button
 
-  - if current_user.find_voted_items.map(&:id).include?(@user.id)
-    %p You've liked this user
+  - if current_user.find_voted_items.map(&:id).include?(@user.id) 
+    - unless current_user.is_match?(@user)
+      %p You've liked this user but you won't be able to message them until they like you too.
   - else
     = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
 
