@@ -9,7 +9,7 @@
   %p= link_to 'Upload Image', new_image_path
   = link_to "Delete", new_message_path
 
-  %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
+  %h1= best_in_place_if current_user.id == @user.id, @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
       %p= button_to 'Send Message', new_message_path, id: 'send_message' unless @user == current_user
@@ -35,7 +35,7 @@
 
   %p= @user.age
   %p= @user.email
-  %p= best_in_place @user, :location, type: :input, path: update_user_path(@user)
-  %p= best_in_place @user, :description, type: :textarea, path: update_user_path(@user)
+  %p= best_in_place_if current_user.id == @user.id, @user, :location, type: :input, path: update_user_path(@user)
+  %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
   %p= @user.interest_list
-  %p Looking for: #{best_in_place @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}
+  %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}
