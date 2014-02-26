@@ -1,6 +1,6 @@
 .profile_dash
   #profile_dash_img
-    = image_tag('green.jpg')
+    = get_profile_image(current_user)
   #profile_dash_rest
     #profile_dash_button
       - if current_user.membership == 'basic'
@@ -25,7 +25,7 @@
     = link_to 'Messages', all_path
   
 .matches
-  %h2 Matches
+  %h2 Matches | #{pluralize(@votes.count, 'user likes')} you
   - @users_matched.each do |user|
     #match_with
       =link_to( get_profile_image(user), user_profile_path(user) )
