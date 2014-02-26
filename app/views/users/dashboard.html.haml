@@ -1,6 +1,6 @@
 .profile_dash
   #profile_dash_img
-    = image_tag('green.jpg')
+    = get_profile_image(current_user)
   #profile_dash_rest
     #profile_dash_button
       - if current_user.membership == 'basic'
