@@ -4,12 +4,15 @@
     -@user.images.each do |image|
       =link_to image_tag(image.image.thumb.url), image
       =link_to "set as profile image | ", set_image_path(image)
-      = link_to "Delete", new_message_path
+      = link_to 'delete', image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?'
+
+  %p= link_to 'Upload Image', new_image_path
+  = link_to "Delete", new_message_path
 
   %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
-      %p= button_to 'Send Message', new_message_path, id: 'send_message'
+      %p= button_to 'Send Message', new_message_path, id: 'send_message' unless @user == current_user
       #message_form
         %h1 Send Message
 
@@ -24,8 +27,9 @@
       You'll need to upgrade to send this user a message.
       = upgrade_button
 
-  - if current_user.find_voted_items.map(&:id).include?(@user.id)
-    %p You've liked this user
+  - if current_user.find_voted_items.map(&:id).include?(@user.id) 
+    - unless current_user.is_match?(@user)
+      %p You've liked this user but you won't be able to message them until they like you too.
   - else
     = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
 

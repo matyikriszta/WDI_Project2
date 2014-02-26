@@ -52,7 +52,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to user_profile_path(@image.user), notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
@@ -84,7 +84,7 @@ class ImagesController < ApplicationController
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to images_url }
+      format.html { redirect_to user_profile_path(@image.user) }
       format.json { head :no_content }
     end
   end
