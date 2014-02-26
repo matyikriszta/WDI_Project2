@@ -17,6 +17,18 @@
 body {
   width: 1240px;
   margin: 0 auto;
+  font-family: verdana;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+h2 {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 0 0 20px 20px;
 }
 
 #nav {
@@ -81,10 +93,19 @@ body {
   width: 25%;
 }
 
-.tokenfield {
-  margin: 10px;
-  border: 1px solid #ddd; 
+input {
+  padding: 10px;
 }
+
+.tokenfield {
+  border: 1px solid #ddd; 
+  padding: 10px;
+}
+
+.token-input {
+  font-size: 16px;
+}
+
 
 .inbox {
   margin-left: 32px;
@@ -94,28 +115,26 @@ body {
   height: 600px;
 }
 
-.likes {
-  background: #eee;
+.matches {
   float: right;
   vertical-align: top;
   display: inline-block;
   width: 500px;
-  height: 300px;
-
+  border: 1px solid black;
 }
 
 .search {
-  margin-top: -270px;
+  border: 1px solid black;
+  margin-top: -360px;
   vertical-align: bottom;
-  background: #eee;
   float: right;
   display: inline-block;
   width: 500px;
-  height: 270px;
 }
 
 .chat {
   width: 500px;
+  margin: 0 auto;
 }
 
 .sender, .receiver {
@@ -133,6 +152,11 @@ body {
   text-align: right;
 }
 
+.receiver {
+  background: #8CC99F;
+  float: left;
+}
+
 .response {
   font-family: 'Inconsolata', sans-serif;
   clear: both;
@@ -140,7 +164,7 @@ body {
 
 #message_field {
   width: 500px;
-  height: 150px;
+  padding: 0 0 30px;
 }
 
 /*DASH MESSAGES*/
@@ -153,7 +177,7 @@ body {
 #message_from {
   margin: 0 0 20px 20px;
   display: inline-block;
-  width: 100px;
+  width: 80px;
 }
 
 #message_from img {
@@ -163,7 +187,7 @@ body {
 }
 
 #message_body {
-  margin-left: 20px;
+  margin-left: 40px;
   vertical-align: top;
   display: inline-block;
   width: 300px;
@@ -186,11 +210,28 @@ body {
 
 }
 
-/*DASH LIKES*/
+/*DASH MATCHES*/
 
-#likes {
+#matches {
   margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
+}
+#match_with {
+  margin-left: 20px;
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+#match_with img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+#match_with a {
+  text-decoration: none;
+  color: black;
 }
 
 /*DASH SEARCH*/
@@ -200,9 +241,207 @@ body {
   font-family: 'Inconsolata', sans-serif;
 }
 
+/*DASH PROFILE*/
 
+.profile_dash {
+  font-family: 'Inconsolata', sans-serif;
+}
 
+#profile_dash_rest {
+  margin-top: 40px;
+  display: block;
+}
 
+.profile_dash a {
+  text-decoration: none;
+  color: #00b355;
+}
 
+#profile_dash_button {
+  margin: 0 auto; 
+}
 
+#profile_dash_button a {
+  margin: 0 auto;
+  color: #ffffff; 
+}
 
+.membership_button {
+  margin-top: 20px;
+  padding: 10px 27px;
+  border-radius: 2px;
+  color: white;
+  background: #00b355;
+}
+
+ul {
+  margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
+}
+
+li {
+  padding: 0 0 10px 0;
+}
+
+/*INBOX MESSAGES*/
+
+.message_from {
+  margin: 0 0 20px 20px;
+  display: inline-block;
+  width: 80px;
+}
+
+.message_from img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.message_body {
+  margin-left: 20px;
+  vertical-align: top;
+  display: inline-block;
+  width: 300px;
+}
+
+.message_body a {
+  text-decoration: none;
+  color: black;
+} 
+
+.message_from, .message_topic, .message_body {
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 80%;
+}
+
+.dash_new_message {
+  margin-top: 20px;
+  text-align: right;
+  font-family: 'Inconsolata', sans-serif;
+
+}
+
+/*USERS NAV*/
+
+#nav_left, .search {
+float: left;
+display: inline-block;
+border: 1px solid black;
+width: 290px;
+max-height: 1000px;
+padding: 10px 20px 10px 10px;
+}
+
+.search {
+  margin-top: -270px;
+  vertical-align: bottom;
+  background: #eee;
+  float: right;
+  display: inline-block;
+  width: 500px;
+}
+
+/*USERS RESULT*/
+
+#search_result {
+  display: inline-block;
+  border: 1px solid black;
+  width: 900px;
+  float: right;
+}
+
+#pagination {
+  padding: 20px 0;
+  border: 1px solid black;
+  text-align: center;
+  width: 900px;
+  float: right;
+}
+
+input[type='submit'], .button {
+padding: 10px;
+font-family: 'Inconsolata', sans-serif;
+font-size: 16px;
+background: #00b355;
+color: #fff;
+border: 0;
+
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#message_form {
+  display: none;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.signup label {
+  display: inline-block;
+  width: 120px;
+}
+
+.signup, #hero {
+  float:left;
+  width: 45%;
+  padding: 20px;
+}
+
+select {
+    padding:10px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label {position:relative}
+/*label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}*/

@@ -1,5 +1,5 @@
 .chat
-  - @message.conversation.each do |message| 
+  - @message.conversation.sort { |x,y| x <=> y }.each do |message| 
     - if current_user.id == message.sent_messageable_id
       .sender
         = message.body
@@ -8,8 +8,8 @@
         = message.body
 
 
-= render 'reply'
+  = render 'reply'
 
-= link_to 'Mark as read', mark_as_read_path
+  = link_to 'Mark as read', mark_as_read_path
 
-= link_to 'Back', all_path
+  = link_to 'Back', all_path

@@ -36,25 +36,44 @@ $(function() {
     showAutocompleteOnFocus: false
   })
 
+  var distance = $('#distance').val() || 10;
+  $('#distance').val( distance );
+  $( ".distance" ).text( distance );
+
+
+
   $( "#distance_slider" ).slider({
-    value: 10,
+    value: distance,
     min: 1,
     max: 50,
     slide: function( event, ui ) {
-      $( "#distance" ).val( ui.value + ' miles' );
+      $( "#distance" ).val( ui.value );
+      $( ".distance" ).text( ui.value );
+
     }
   });
 
+  var age_from = $('#age_from').val() || 25;
+  var age_to = $('#age_to').val() || 35;
+  $('#age_from').val(age_from);
+  $('#age_to').val(age_to);
+  $( '.from' ).text( age_from );
+  $( '.to' ).text( age_to );            
+
+
   $( "#age_slider" ).slider({
     range: true,
-    values: [25, 35],
+    values: [age_from, age_to],
     min: 18,
     max: 75,
     slide: function( event, ui ) {
       $( "#age_from" ).val( ui.values[ 0 ] );
-      $( "#age_to" ).val( ui.values[ 1 ] );      
+      $( "#age_to" ).val( ui.values[ 1 ] );
+      $( ".from" ).text( ui.values[ 0 ] );
+      $( ".to" ).text( ui.values[ 1 ] );            
     }
   });
 
+  $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+  $("a[rel=leanModal]").leanModal();
 })
-

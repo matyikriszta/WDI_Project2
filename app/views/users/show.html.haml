@@ -1,27 +1,39 @@
-
-.data
-  %h1= @user.name
-
+.wrap
 
   %p
-  = get_profile_image(@user)
-  -@user.images.each do |image|
-    = link_to image_tag(image.image.thumb.url), image
-    = link_to "set as profile image | ", set_image_path(image)
-    = link_to 'delete', image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?'
+    = get_profile_image(@user)
+    -@user.images.each do |image|
+      =link_to image_tag(image.image.thumb.url), image
+      =link_to "set as profile image | ", set_image_path(image)
+      = link_to 'delete', image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?'
 
   %p= link_to 'Upload Image', new_image_path
-  %p= link_to 'Send Message', new_message_path
-  %p= link_to 'Like', create_like_path(@user.id), method: :post
+      
+  %h1= @user.name
+  - if current_user.is_match?(@user)
+    - if can? :create, ActsAsMessageable
+      %p= button_to 'Send Message', new_message_path, id: 'send_message'
+      #message_form
+        %h1 Send Message
+
+        = form_for ActsAsMessageable::Message.new, :url => create_message_path, :method => :post do |f|
+          %p= f.hidden_field :to, {value: @user.id}
+          %p= f.label :topic
+          %p= f.text_field :topic
+          %p= f.label :body
+          %p= f.text_area :body
+          %p= f.submit :send
+    - else
+      You'll need to upgrade to send this user a message.
+      = upgrade_button
+
+  - if current_user.find_voted_items.map(&:id).include?(@user.id)
+    %p You've liked this user
+  - else
+    = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
+
   %p= @user.age
   %p= @user.email
   %p= @user.location
   %p= @user.interest_list
   %p Looking for: #{@user.preference}
-
-  %p= @user.location
-  / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
-
-  %p= @user.description
-
-
