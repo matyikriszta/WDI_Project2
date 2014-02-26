@@ -25,7 +25,7 @@
     = link_to 'Messages', all_path
   
 .matches
-  %h2 Matches
+  %h2 Matches | #{pluralize(@votes.count, 'user likes')} you
   - @users_matched.each do |user|
     #match_with
       =link_to( get_profile_image(user), user_profile_path(user) )
