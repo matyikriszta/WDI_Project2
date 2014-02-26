@@ -1,6 +1,9 @@
 Timdr::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
+
+
+  put "/users/:id", to: 'users#update', as: 'update_user'
 
   get "/messages", to: 'messages#inbox', as: 'inbox'
   post "/messages/new/:id", to: 'messages#new_message', as: 'new_message'
@@ -22,7 +25,7 @@ Timdr::Application.routes.draw do
   get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
   get "/update_membership", to: 'users#update_membership', as: 'update_membership'
-  get "/tags", to: 'tags#index'
+  get "/tags", to: 'tags#index' 
 
   post "users/like/:id", to: 'likes#create_like', as: 'create_like'
   get '/set_default/:id', to: 'images#set_default', as: 'set_image'

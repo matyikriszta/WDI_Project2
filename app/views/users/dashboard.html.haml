@@ -15,7 +15,8 @@
       %li= current_user.age
 
     - if current_user
-      = link_to 'Go to Profile', user_profile_path(current_user)
+      %p= link_to 'Go to Profile', user_profile_path(current_user)
+      %p= link_to 'Edit Profile', edit_user_registration_path
 
 .inbox
   %h2 Fetching messages...

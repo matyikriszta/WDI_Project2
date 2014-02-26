@@ -41,4 +41,18 @@ class UsersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def update
+  @user = User.find params[:id]
+
+  respond_to do |format|
+    if @user.update_attributes(params[:user])
+      format.html { redirect_to(user_profile.path(@user), :notice => 'User was successfully updated.') }
+      format.json { respond_with_bip(@user) }
+    else
+      format.html { redirect_to user_profile.path(@user) }
+      format.json { respond_with_bip(@user) }
+    end
+  end
+end
+
 end
