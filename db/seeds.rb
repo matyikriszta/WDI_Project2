@@ -17,3 +17,10 @@ locations = ['Abbey Wood, London', 'Acton, London', 'Addington, London', 'Addisc
   User.create name: Faker::Name.name , email: Faker::Internet.email, password: 'password', location: locations.sample, gender: genders.sample, preference: preference.sample, dob: '1980-01-01', interest_list: interests.sample(5).join(', '), description: 'Chocolate bar lollipop gingerbread. Muffin bear claw marzipan. Cheesecake fruitcake icing toffee carrot cake sweet. Toffee danish gummi bears pudding lollipop dragée. Wafer applicake danish lollipop croissant. Powder jujubes chocolate cake jujubes jelly-o. Jelly jelly-o jujubes sweet roll toffee donut cheesecake. Pie chocolate bar danish brownie caramels. Bonbon chocolate cake dessert marzipan. Powder brownie jelly lollipop candy canes. Cotton candy chocolate cake halvah. Cotton candy powder bonbon marzipan marshmallow jelly-o lemon drops.'
 end
 
+User.all.each do |user|
+  20.times do
+    user1 = User.all.sample
+    user.vote voter: user1 unless user == user1
+  end
+end
+

@@ -1,18 +1,24 @@
 .wrap
 
   %p
-    = get_profile_image(@user)
+    #profile_img
+      = get_profile_image(@user)
+    %p= link_to 'Upload Image', new_image_path
+
     -@user.images.each do |image|
+
       =link_to image_tag(image.image.thumb.url), image.image.detail.url, class: :fancybox
-      =link_to set_image_path(image) do
-        %i.fa.fa-picture-o
-      =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
-        %i.fa.fa-trash-o
+      - if @user == current_user
+        =link_to set_image_path(image) do
+          %i.fa.fa-picture-o
+        =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
+          %i.fa.fa-trash-o
+      - if @user == current_user
+        %p= link_to 'Upload Image', new_image_path, class: 'button', id: 'upload_image'
+      #image_form
+        =render 'shared/image_form'
 
-
-  %p= link_to 'Upload Image', new_image_path
-      
-  %h1= @user.name
+  %h1= best_in_place_if current_user.id == @user.id, @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
       %p= button_to 'Send Message', new_message_path, id: 'send_message'
@@ -37,6 +43,7 @@
 
   %p= @user.age
   %p= @user.email
-  %p= @user.location
+  %p= best_in_place_if current_user.id == @user.id, @user, :location, type: :input, path: update_user_path(@user)
+  %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
   %p= @user.interest_list
-  %p Looking for: #{@user.preference}
+  %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}

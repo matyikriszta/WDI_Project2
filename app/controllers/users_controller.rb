@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   def dashboard
     @messages = current_user.received_messages
     @users_matched = current_user.match
+    @votes = Vote.where(votable_id: current_user.id)
   end
 
   def update_membership
@@ -42,17 +43,17 @@ class UsersController < ApplicationController
   end
 
   def update
-  @user = User.find params[:id]
+   @user = User.find params[:id]
 
-  respond_to do |format|
-    if @user.update_attributes(params[:user])
-      format.html { redirect_to(user_profile.path(@user), :notice => 'User was successfully updated.') }
-      format.json { respond_with_bip(@user) }
-    else
-      format.html { redirect_to user_profile.path(@user) }
-      format.json { respond_with_bip(@user) }
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to(user_profile.path(@user), :notice => 'User was successfully updated.') }
+        format.json { respond_with_bip(@user) }
+      else
+        format.html { redirect_to user_profile.path(@user) }
+        format.json { respond_with_bip(@user) }
+      end
     end
-  end
 end
 
 end

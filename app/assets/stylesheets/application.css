@@ -30,8 +30,15 @@ a {
 
 h2 {
   font-family: 'Inconsolata', sans-serif;
-  margin: 0 0 20px 20px;
+  margin: 0 0 20px 0;
 }
+
+h3 {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 10px 0 10px 0;
+}
+
+/* NAV BAR */
 
 #nav {
   margin: 30px 0;
@@ -40,8 +47,21 @@ h2 {
 }
 
 .login {
+  font-family: 'Inconsolata', sans-serif;
+  text-align: right;
   margin-left: 232px;
 }
+
+.dashboard_button {
+  margin-left: 10px;
+  padding: 10px 24px;
+  border-radius: 2px;
+  color: white;
+  background: #00b355;
+
+}
+
+/* CONTENT */
 
 #content {
   width: 1240px;
@@ -89,10 +109,16 @@ h2 {
   clear: both;
 }
 
-
 .left {
   float: left;
   width: 25%;
+}
+
+#profile_img img {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
 }
 
 input {
@@ -108,12 +134,11 @@ input {
   font-size: 16px;
 }
 
-
 .inbox {
-  margin-left: 32px;
+  margin-left: 70px;
   vertical-align: top;
   display: inline-block;
-  width: 450px;
+  width: 440px;
   height: 600px;
 }
 
@@ -121,18 +146,7 @@ input {
   float: right;
   vertical-align: top;
   display: inline-block;
-  width: 500px;
-  border: 1px solid black;
-}
-
-.search {
-  border: 1px solid black;
-  margin-top: -360px;
-  vertical-align: bottom;
-  float: right;
-  display: inline-block;
-  width: 500px;
-  box-sizing: border-box;
+  width: 440px;
 }
 
 .chat {
@@ -173,12 +187,11 @@ input {
 /*DASH MESSAGES*/
 
 #incoming {
-  margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
 }
 
 #message_from {
-  margin: 0 0 20px 20px;
+  margin: 0 0 20px 0;
   display: inline-block;
   width: 80px;
 }
@@ -193,7 +206,7 @@ input {
   margin-left: 20px;
   vertical-align: top;
   display: inline-block;
-  width: 300px;
+  width: 280px;
 }
 
 #message_body a {
@@ -210,7 +223,6 @@ input {
   margin-top: 20px;
   text-align: right;
   font-family: 'Inconsolata', sans-serif;
-
 }
 
 /*DASH MATCHES*/
@@ -220,7 +232,8 @@ input {
   font-family: 'Inconsolata', sans-serif;
 }
 #match_with {
-  margin-left: 20px;
+  vertical-align: top;
+  margin: 0 20px 0 0;
   display: inline-block;
   width: 80px;
   text-align: center;
@@ -240,7 +253,6 @@ input {
 /*DASH SEARCH*/
 
 #search {
-  margin-left: 20px;
   font-family: 'Inconsolata', sans-serif;
 }
 
@@ -271,7 +283,7 @@ input {
 
 .membership_button {
   margin-top: 20px;
-  padding: 10px 27px;
+  padding: 10px 28px;
   border-radius: 2px;
   color: white;
   background: #00b355;
@@ -327,21 +339,20 @@ li {
 /*USERS NAV*/
 
 #nav_left, .search {
-float: left;
-display: inline-block;
-border: 1px solid black;
-width: 290px;
-max-height: 1000px;
-padding: 10px 20px 10px 10px;
+  float: left;
+  display: inline-block;
+  width: 290px;
+  max-height: 1000px;
+  padding: 10px 20px 10px 10px;
 }
 
 .search {
-  margin-top: -270px;
+  margin-top: -290px;
   vertical-align: bottom;
-  background: #eee;
   float: right;
   display: inline-block;
-  width: 500px;
+  width: 420px;
+  padding: 0 20px 10px 0;
 }
 
 /*USERS RESULT*/
@@ -362,27 +373,27 @@ padding: 10px 20px 10px 10px;
 }
 
 input[type='submit'], .button {
-padding: 10px;
-font-family: 'Inconsolata', sans-serif;
-font-size: 16px;
-background: #00b355;
-color: #fff;
-border: 0;
-
+  padding: 10px 28px;
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 14px;
+  background: #00b355;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
 }
 
 #lean_overlay {
-    position: fixed;
-    z-index:100;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-    background: #000;
-    display: none;
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
 }
 
-#message_form {
+#message_form, #image_form {
   display: none;
   background-color: #fff;
   padding: 20px;
