@@ -1,16 +1,18 @@
 
-.wrap
+.data
   %h1= @user.name
+
 
   %p
   = get_profile_image(@user)
   -@user.images.each do |image|
-    =link_to image_tag(image.image.thumb.url), image
-    =link_to "set as profile image | ", set_image_path(image)
-    = link_to "Delete", new_message_path
+    = link_to image_tag(image.image.thumb.url), image
+    = link_to "set as profile image | ", set_image_path(image)
+    = link_to 'delete', image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?'
 
+  %p= link_to 'Upload Image', new_image_path
   %p= link_to 'Send Message', new_message_path
-  %p= link_to 'Like'
+  %p= link_to 'Like', create_like_path(@user.id), method: :post
   %p= @user.age
   %p= @user.email
   %p= @user.location
@@ -22,4 +24,4 @@
 
   %p= @user.description
 
-  = link_to 'Like', create_like_path(@user.id), method: :post
+
