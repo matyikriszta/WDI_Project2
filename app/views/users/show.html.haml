@@ -9,7 +9,17 @@
   %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
-      %p= button_to 'Send Message', new_message_path
+      %p= button_to 'Send Message', new_message_path, id: 'send_message'
+      #message_form
+        %h1 Send Message
+
+        = form_for ActsAsMessageable::Message.new, :url => create_message_path, :method => :post do |f|
+          %p= f.hidden_field :to, {value: @user.id}
+          %p= f.label :topic
+          %p= f.text_field :topic
+          %p= f.label :body
+          %p= f.text_area :body
+          %p= f.submit :send
     - else
       You'll need to upgrade to send this user a message.
       = upgrade_button

@@ -18,6 +18,7 @@ body {
   width: 1240px;
   margin: 0 auto;
   font-family: verdana;
+  font-size: 14px;
 }
 
 a {
@@ -357,11 +358,90 @@ padding: 10px 20px 10px 10px;
   float: right;
 }
 
-input[type='submit'] {
+input[type='submit'], .button {
 padding: 10px;
 font-family: 'Inconsolata', sans-serif;
 font-size: 16px;
 background: #00b355;
 color: #fff;
 border: 0;
+
 }
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+#message_form {
+  display: none;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.signup label {
+  display: inline-block;
+  width: 120px;
+}
+
+.signup, #hero {
+  float:left;
+  width: 45%;
+  padding: 20px;
+}
+
+select {
+    padding:10px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label {position:relative}
+/*label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}*/

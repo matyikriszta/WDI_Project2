@@ -75,9 +75,9 @@ $(function() {
     }
   });
 
-});
+  $(".best_in_place").best_in_place();
 
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
+  $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+  $("a[rel=leanModal]").leanModal();
+
 });
