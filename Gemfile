@@ -20,6 +20,8 @@ gem 'acts-as-messageable', :git => 'git://github.com/hoczaj/acts-as-messageable.
 gem "geocoder"
 gem 'acts_as_votable'
 gem 'best_in_place'
+gem 'fancybox-rails'
+gem 'font-awesome-rails'
 
 
 group :development, :test do

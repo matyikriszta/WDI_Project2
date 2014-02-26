@@ -15,6 +15,7 @@
 //= require jquery.ui.autocomplete
 //= require jquery.ui.slider
 //= require best_in_place
+//= require fancybox
 //= require_tree .
 
 $(function() {
@@ -81,6 +82,5 @@ $(function() {
   $("a[rel=leanModal]").leanModal();
 
   $(".fancybox").fancybox();
-
 
 })

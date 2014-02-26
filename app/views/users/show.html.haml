@@ -1,18 +1,21 @@
 .wrap
+
   %p
     = get_profile_image(@user)
     -@user.images.each do |image|
-      =link_to image_tag(image.image.thumb.url), image
-      =link_to "set as profile image | ", set_image_path(image)
-      = link_to 'delete', image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?'
+      =link_to image_tag(image.image.thumb.url), image.image.url, class: :fancybox
+      =link_to set_image_path(image) do
+        %i.fa.fa-picture-o
+      =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
+        %i.fa.fa-trash-o
+
 
   %p= link_to 'Upload Image', new_image_path
-  = link_to "Delete", new_message_path
-
-  %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
+      
+  %h1= @user.name
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
-      %p= button_to 'Send Message', new_message_path, id: 'send_message' unless @user == current_user
+      %p= button_to 'Send Message', new_message_path, id: 'send_message'
       #message_form
         %h1 Send Message
 
@@ -27,15 +30,13 @@
       You'll need to upgrade to send this user a message.
       = upgrade_button
 
-  - if current_user.find_voted_items.map(&:id).include?(@user.id) 
-    - unless current_user.is_match?(@user)
-      %p You've liked this user but you won't be able to message them until they like you too.
+  - if current_user.find_voted_items.map(&:id).include?(@user.id)
+    %p You've liked this user
   - else
     = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
 
   %p= @user.age
   %p= @user.email
-  %p= best_in_place @user, :location, type: :input, path: update_user_path(@user)
-  %p= best_in_place @user, :description, type: :textarea, path: update_user_path(@user)
+  %p= @user.location
   %p= @user.interest_list
-  %p Looking for: #{best_in_place @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}
+  %p Looking for: #{@user.preference}
