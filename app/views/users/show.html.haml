@@ -1,13 +1,12 @@
 .wrap
-
   %p
     = get_profile_image(@user)
     -@user.images.each do |image|
       =link_to image_tag(image.image.thumb.url), image
       =link_to "set as profile image | ", set_image_path(image)
       = link_to "Delete", new_message_path
-      
-  %h1= @user.name
+
+  %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
       %p= link_to 'Send Message', new_message_path
@@ -22,9 +21,7 @@
 
   %p= @user.age
   %p= @user.email
-  %p= @user.location
+  %p= best_in_place @user, :location, type: :input, path: update_user_path(@user)
+  %p= best_in_place @user, :description, type: :textarea, path: update_user_path(@user)
   %p= @user.interest_list
-  %p Looking for: #{@user.preference}
-
-  %p= @user.location
-  / %p latitude: #{@user.latitude}, longitude: #{@user.longitude}
+  %p Looking for: #{best_in_place @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}

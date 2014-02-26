@@ -179,13 +179,13 @@ input {
 }
 
 #message_from img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
 }
 
 #message_body {
-  margin-left: 40px;
+  margin-left: 20px;
   vertical-align: top;
   display: inline-block;
   width: 300px;
@@ -217,14 +217,14 @@ input {
 #match_with {
   margin-left: 20px;
   display: inline-block;
-  width: 100px;
+  width: 80px;
   text-align: center;
   font-family: 'Inconsolata', sans-serif;
   font-size: 80%;
 }
 #match_with img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
 }
 #match_with a {

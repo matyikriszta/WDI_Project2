@@ -19,6 +19,7 @@ gem 'rmagick'
 gem 'acts-as-messageable', :git => 'git://github.com/hoczaj/acts-as-messageable.git'
 gem "geocoder"
 gem 'acts_as_votable'
+gem 'best_in_place'
 
 
 group :development, :test do
