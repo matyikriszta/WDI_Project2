@@ -17,7 +17,6 @@
  */
 
 body {
-  border: 1px solid black;
   width: 1240px;
   margin: 0 auto;
   font-family: verdana;
@@ -149,7 +148,6 @@ h3 {
 
 #gallery {
   vertical-align: top;
-  border: 1px solid black;
   display: inline-block;
   width: 65%;
   float: right;
@@ -170,6 +168,17 @@ h3 {
 .image_control {
   display: inline-block;
   font-size: 70%;
+}
+
+.image_control a {
+  font-size: 140%;
+}
+
+#upload_button {
+  padding-bottom: 38px;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 140px;
 }
 
 input {
