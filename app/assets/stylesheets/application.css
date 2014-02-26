@@ -153,6 +153,7 @@ input {
 
 .receiver {
   background: #8CC99F;
+  float: left;
 }
 
 .response {
@@ -356,7 +357,11 @@ padding: 10px 20px 10px 10px;
   float: right;
 }
 
-
-
-
-
+input[type='submit'] {
+padding: 10px;
+font-family: 'Inconsolata', sans-serif;
+font-size: 16px;
+background: #00b355;
+color: #fff;
+border: 0;
+}

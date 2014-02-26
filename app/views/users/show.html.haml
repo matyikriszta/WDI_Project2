@@ -9,7 +9,7 @@
   %h1= best_in_place @user, :name, type: :input, path: update_user_path(@user)
   - if current_user.is_match?(@user)
     - if can? :create, ActsAsMessageable
-      %p= link_to 'Send Message', new_message_path
+      %p= button_to 'Send Message', new_message_path
     - else
       You'll need to upgrade to send this user a message.
       = upgrade_button
@@ -17,7 +17,7 @@
   - if current_user.find_voted_items.map(&:id).include?(@user.id)
     %p You've liked this user
   - else
-    = link_to 'Like', create_like_path(@user.id), method: :post
+    = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
 
   %p= @user.age
   %p= @user.email

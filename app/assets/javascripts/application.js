@@ -39,7 +39,7 @@ $(function() {
 
   var distance = $('#distance').val() || 10;
   $('#distance').val( distance );
-  $( "#distance" ).text( distance );
+  $( ".distance" ).text( distance );
 
 
 

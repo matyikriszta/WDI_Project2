@@ -9,7 +9,7 @@ class LikesController < ApplicationController
 
   def create_like
     @user = User.find(params[:id])
-    @user.vote voter: current_user
+    @user.vote voter: current_user unless @user == current_user
     redirect_to user_profile_path @user
   end
 end
