@@ -3,7 +3,7 @@ Timdr::Application.routes.draw do
   devise_for :users
 
   get "/messages", to: 'messages#inbox', as: 'inbox'
-  get "/messages/new/:id", to: 'messages#new_message', as: 'new_message'
+  post "/messages/new/:id", to: 'messages#new_message', as: 'new_message'
   post "/messages", to: 'messages#create_message', as: 'create_message'
   post "/messages/reply/:id", to: 'messages#reply', as: 'reply'
   get "messages/conversation/:id", to: 'messages#conversation', as: 'conversation' 

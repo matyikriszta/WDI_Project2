@@ -74,4 +74,6 @@ $(function() {
     }
   });
 
+  $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+  $("a[rel=leanModal]").leanModal();
 })
