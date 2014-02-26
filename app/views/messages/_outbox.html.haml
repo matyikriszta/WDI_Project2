@@ -2,7 +2,7 @@
   - if current_user.id == message.sent_messageable_id || message.opened
     .message_message
       .message_from
-        = image_tag('tim.jpg')
+        = get_profile_image(message.to)
       .message_body
         %h2= message.to.name
         %p= truncate(message.body, length: 120)
