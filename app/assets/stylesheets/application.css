@@ -106,7 +106,6 @@ input {
   font-size: 16px;
 }
 
-
 .inbox {
   margin-left: 32px;
   vertical-align: top;
@@ -121,15 +120,6 @@ input {
   display: inline-block;
   width: 500px;
   border: 1px solid black;
-}
-
-.search {
-  border: 1px solid black;
-  margin-top: -360px;
-  vertical-align: bottom;
-  float: right;
-  display: inline-block;
-  width: 500px;
 }
 
 .chat {
