@@ -76,4 +76,13 @@ $(function() {
 
   $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
   $("a[rel=leanModal]").leanModal();
+
 })
+
+
+  $(document).ready(function() {
+    $(".fancybox").fancybox();
+  });
+</script> 
+
+
