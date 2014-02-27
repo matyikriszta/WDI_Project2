@@ -19,7 +19,7 @@
 body {
   width: 1240px;
   margin: 0 auto;
-  font-family: verdana;
+  font-family: 'Inconsolata', sans-serif; 
   font-size: 14px;
 }
 
