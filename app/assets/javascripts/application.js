@@ -81,6 +81,9 @@ $(function() {
 
   $('#upload_image').replaceWith('<a href=#image_form rel="leanModal" class="button">Upload Image</a>')
   $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+  if (window.location.pathname != "/users/sign_in") {
+    $('#sign_in').replaceWith('<a href=#login_form rel="leanModal" class="button">Sign in</a>')
+  }
 
   $("a[rel=leanModal]").leanModal();
   $(".fancybox").fancybox();
