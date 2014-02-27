@@ -20,11 +20,14 @@
 
 #dash_background
   .inbox
-    %h2#incoming Fetching messages...
-    = render 'messages/dash'
-    #dash_new_message
-      %h3= link_to 'All messages', all_path
-    
+    - if can? :create, ActsAsMessageable
+      %h2#incoming Fetching messages...
+      = render 'messages/dash'
+      #dash_new_message
+        %h3= link_to 'All messages', all_path
+    - else
+      %p You'll need to upgrade to premium to send and recieve messages
+      
   #matches_search
     .matches
       %h2#matches Matches | #{pluralize(@votes.count, 'user likes')} you

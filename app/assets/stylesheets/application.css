@@ -19,7 +19,7 @@
 body {
   width: 1240px;
   margin: 0 auto;
-  font-family: verdana;
+  font-family: 'Inconsolata', sans-serif; 
   font-size: 14px;
 }
 
@@ -214,11 +214,20 @@ p {
 .tokenfield {
   border: 1px solid #ddd; 
   padding: 10px;
+  font-family: 'Inconsolata', sans-serif;
+
 }
 
 .token-input {
   font-size: 16px;
+  font-family: 'Inconsolata', sans-serif;
 }
+
+.ui-menu .ui-menu-item a {
+  font-family: 'Inconsolata', sans-serif;
+  }
+
+.ui-autocomplete { height: 150px; overflow-y: scroll; overflow-x: hidden;}
 
 /* CHAT PAGE */
 
