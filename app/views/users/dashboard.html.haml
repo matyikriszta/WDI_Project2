@@ -18,19 +18,24 @@
       %p= link_to 'Go to Profile', user_profile_path(current_user)
       %p= link_to 'Edit Profile', edit_user_registration_path
 
-.inbox
-  %h2 Fetching messages...
-  = render 'messages/dash'
-  #dash_new_message
-    = link_to 'Messages', all_path
-  
-.matches
-  %h2 Matches | #{pluralize(@votes.count, 'user likes')} you
-  - @users_matched.each do |user|
-    #match_with
-      =link_to( get_profile_image(user), user_profile_path(user) )
-      %h3= link_to user.name, user_profile_path(user)
+#dash_background
+  .inbox
+    %h2#incoming Fetching messages...
+    = render 'messages/dash'
+    #dash_new_message
+      %h3= link_to 'All messages', all_path
+    
+  .matches
+    %h2#matches Matches | #{pluralize(@votes.count, 'user likes')} you
+    - @users_matched.first(4).map do |user|
+      .match_with
+        #match_with_img
+          =link_to( get_profile_image(user), user_profile_path(user) )
+        #match_with_name
+          %h3= link_to user.name, user_profile_path(user)
+    #dash_match_link
+      %h3= link_to 'All matches', likes_path
 
-.search
-  %h2 Search
-  =render 'shared/search'
+  .search_dash
+    %h2#search Search
+    =render 'shared/search'

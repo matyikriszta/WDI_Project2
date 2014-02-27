@@ -27,7 +27,7 @@
       <% if current_user %>
         <%= current_user.email %> | <%= link_to "log out", destroy_user_session_path, method: :delete %> <%= link_to "dashboard", dashboard_path, class: 'dashboard_button' %>
       <% else %>
-        <%= link_to "Sign in", new_user_session_path %> | 
+        <%= link_to "Sign in", new_user_session_path, class: 'button', id: 'sign_in' %> | 
         <%= link_to "Register", new_user_registration_path %>
       <% end %>
     </div>

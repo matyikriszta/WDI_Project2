@@ -23,6 +23,10 @@ body {
   font-size: 14px;
 }
 
+.notice {
+  font-family: 'Inconsolata', sans-serif; 
+}
+
 a {
   text-decoration: none;
   color: #444;
@@ -41,6 +45,10 @@ h2 {
 h3 {
   font-family: 'Inconsolata', sans-serif;
   margin: 10px 0 10px 0;
+}
+
+p {
+  font-family: 'Inconsolata', sans-serif;
 }
 
 /* NAV BAR */
@@ -85,7 +93,7 @@ h3 {
 }
 
 .user {
-  margin: 20px;
+  margin: 0 20px 40px 20px;
   height: 150px;
   width: 260px;
   float: left;
@@ -132,6 +140,7 @@ h3 {
 }
 
 #profile_img {
+  text-align: center;
   display: inline-block;
   height: 300px;
   width: 300px;
@@ -154,15 +163,15 @@ h3 {
 }
 
 .user_images {
-  margin: 0 8px 8px 0; 
+  margin: 0 22px 10px 0; 
   display: inline-block;
-  width: 150px;
+  width: 155px;
   vertical-align: top;
   overflow: hidden;
 }
 
 .user_images img {
-  height: 150px;
+  height: 155px;
 }
 
 .image_control {
@@ -171,10 +180,11 @@ h3 {
 }
 
 .image_control a {
-  font-size: 140%;
+  font-size: 160%;
 }
 
 #upload_button {
+  padding-top: 16px;
   padding-bottom: 38px;
   vertical-align: bottom;
   display: inline-block;
@@ -192,21 +202,6 @@ input {
 
 .token-input {
   font-size: 16px;
-}
-
-.inbox {
-  margin-left: 70px;
-  vertical-align: top;
-  display: inline-block;
-  width: 440px;
-  height: 600px;
-}
-
-.matches {
-  float: right;
-  vertical-align: top;
-  display: inline-block;
-  width: 440px;
 }
 
 .chat {
@@ -244,9 +239,27 @@ input {
   padding: 0 0 30px;
 }
 
+/* DASH BACKGROUND */
+
+#dash_background { 
+  padding: 20px 20px 20px 20px;
+  width: 75%;
+  display: inline-block;
+  float: right;
+  background: #eee;
+}
+
 /*DASH MESSAGES*/
 
-#incoming {
+.inbox {
+  clear: both;
+  padding: 20px 20px 10px 20px;
+  background: #ffffff;
+  vertical-align: top;
+  display: inline-block;
+  width: 415px;
+  height: 576px;
+  float: left;
   font-family: 'Inconsolata', sans-serif;
 }
 
@@ -254,12 +267,13 @@ input {
   margin: 0 0 20px 0;
   display: inline-block;
   width: 80px;
+  border-radius: 100%;
+  overflow: hidden;
 }
 
 #message_from img {
-  width: 80px;
+  vertical-align: middle;
   height: 80px;
-  border-radius: 100%;
 }
 
 #message_body {
@@ -274,46 +288,80 @@ input {
   color: black;
 } 
 
+#message_body p {
+  font-size: 120%;
+} 
+
 #message_from, #message_topic, #message_body {
-  font-family: 'Inconsolata', sans-serif;
   font-size: 80%;
 }
 
 #dash_new_message {
   margin-top: 20px;
   text-align: right;
-  font-family: 'Inconsolata', sans-serif;
 }
 
 /*DASH MATCHES*/
 
-#matches {
-  margin-left: 20px;
+.matches {
   font-family: 'Inconsolata', sans-serif;
-}
-#match_with {
+  padding: 20px 0 10px 20px;
+  background: #ffffff;
+  float: right;
   vertical-align: top;
+  display: inline-block;
+  width: 434px;
+  max-height: 250px;
+}
+
+.match_with {
   margin: 0 20px 0 0;
   display: inline-block;
+  vertical-align: top;
   width: 80px;
-  text-align: center;
-  font-family: 'Inconsolata', sans-serif;
   font-size: 80%;
 }
-#match_with img {
+
+#match_with_img {
   width: 80px;
-  height: 80px;
   border-radius: 100%;
+  overflow: hidden;
 }
-#match_with a {
+
+#match_with_img img {
+  vertical-align: middle;
+  height: 80px;
+}
+
+#match_with_name {
+  width: 80px;
+  text-align: center;
+}
+
+#match_with_name a {
   text-decoration: none;
   color: black;
+}
+
+#dash_match_link {
+  margin: 20px 20px 0 0;
+  text-align: right;
 }
 
 /*DASH SEARCH*/
 
 #search {
   font-family: 'Inconsolata', sans-serif;
+}
+
+.search_dash {
+  margin-top: 20px;
+  padding: 20px 20px 20px 20px;
+  vertical-align: bottom;
+  float: right;
+  display: inline-block;
+  width: 415px;
+  background: #ffffff;
 }
 
 /*DASH PROFILE*/
@@ -393,7 +441,6 @@ li {
   margin-top: 20px;
   text-align: right;
   font-family: 'Inconsolata', sans-serif;
-
 }
 
 /*USERS NAV*/
@@ -403,23 +450,14 @@ li {
   display: inline-block;
   width: 290px;
   max-height: 1000px;
-  padding: 10px 20px 10px 10px;
-}
-
-.search {
-  margin-top: -290px;
-  vertical-align: bottom;
-  float: right;
-  display: inline-block;
-  width: 420px;
-  padding: 0 20px 10px 0;
+  padding: 10px 20px 20px 20px;
+  background: #eee;
 }
 
 /*USERS RESULT*/
 
 #search_result {
   display: inline-block;
-  border: 1px solid black;
   width: 900px;
   float: right;
 }
@@ -480,7 +518,7 @@ input[type='submit'], .button {
 }
 
 select {
-    padding:10px;
+    padding: 10px 30px 10px 20px;
     margin: 0;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;

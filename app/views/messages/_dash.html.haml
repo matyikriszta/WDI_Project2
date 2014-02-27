@@ -2,7 +2,7 @@
   - if current_user.id != message.sent_messageable_id && !message.opened
     #dash_message
       #message_from
-        = link_to image_tag('green.jpg')
+        = get_profile_image(message.from)
       #message_body
         %h3= link_to message.from.name, conversation_path(message.id)
         %p= link_to truncate(message.body, length: 80, separator: ' '), conversation_path(message.id)
