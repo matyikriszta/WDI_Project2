@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
   has_one :user_profile, class_name: "User", foreign_key: :profile_image_id
   attr_accessible :image, :title
 
-
   mount_uploader :image, AvatarUploader
+  validates_presence_of :image
+
 end

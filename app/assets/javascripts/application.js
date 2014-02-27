@@ -11,10 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require jquery.ui.slider
 //= require best_in_place
+//= require fancybox
 //= require_tree .
 
 $(function() {
@@ -81,8 +83,7 @@ $(function() {
   $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
 
   $("a[rel=leanModal]").leanModal();
-
   $(".fancybox").fancybox();
 
-
 })
+

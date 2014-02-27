@@ -5,7 +5,7 @@
         = get_profile_image(message.to)
       .message_body
         %h2= message.to.name
-        %p= truncate(message.body, length: 120)
+        %p= truncate(message.body, length: 120, separator: ' ')
       .reply_link
         = link_to 'Reply', conversation_path(message.id)
       .delete_link
