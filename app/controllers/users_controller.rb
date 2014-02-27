@@ -27,13 +27,18 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def matched_users
+    @users = current_user.match
+  end
+
   def show
     @user = User.find(params[:id])
   end
 
   def dashboard
     @messages = current_user.received_messages
-    @users_matched = current_user.match
+    @users_matched = current_user.match.sample(8)
+    @users_matched_count = current_user.match.size
     @votes = Vote.where(votable_id: current_user.id)
   end
 

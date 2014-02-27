@@ -22,10 +22,12 @@ Timdr::Application.routes.draw do
   
   get "/users", to: 'users#index', as: 'users'
   get "/users/search", to: 'users#search', as: 'user_search'
-  get "/users/:id", to: 'users#show', as: 'user_profile'
   get "/dashboard", to: 'users#dashboard', as: 'dashboard'
   get "/update_membership", to: 'users#update_membership', as: 'update_membership'
   get "/tags", to: 'tags#index' 
+  get "/users/matches", to: 'users#matched_users', as: 'matched_users'
+  get "/users/:id", to: 'users#show', as: 'user_profile'
+
 
   post "users/like/:id", to: 'likes#create_like', as: 'create_like'
   get '/set_default/:id', to: 'images#set_default', as: 'set_image'
