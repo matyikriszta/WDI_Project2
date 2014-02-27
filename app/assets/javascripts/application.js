@@ -95,11 +95,11 @@ $(function() {
     animateSignUp();
   }
 
-    $('#register_link').click(animateSignUp);    
-
-
+  $('#register_link').click(animateSignUp);    
   $("a[rel=leanModal]").leanModal();
   $(".fancybox").fancybox();
+
+
 
 })
 

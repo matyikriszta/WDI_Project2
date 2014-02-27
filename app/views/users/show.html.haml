@@ -46,5 +46,5 @@
   %p= @user.email
   %p= best_in_place_if current_user.id == @user.id, @user, :location, type: :input, path: update_user_path(@user)
   %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
-  %p= @user.interest_list
+  %p= best_in_place_if current_user = @user, @user, :interest_list, type: :input, path: update_user_path(@user)
   %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}

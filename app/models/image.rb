@@ -6,4 +6,14 @@ class Image < ActiveRecord::Base
   mount_uploader :image, AvatarUploader
   validates_presence_of :image
 
+  validate :user_can_upload
+
+  def user_can_upload
+    if self.user.membership == 'basic'
+      if self.user.images.count >= 1
+        errors.add(:base, 'You\'ve exceeded your photo allowance. Upgrade to premium')
+      end
+    end
+  end
+
 end
