@@ -3,7 +3,8 @@
   %p
     #profile_img
       = get_profile_image(@user)
-    #gallery
+
+    #gallery.sortable
       -@user.images.each do |image|
         .user_images
           =link_to image_tag(image.image.thumb.url), image.image.detail.url, class: :fancybox
@@ -13,6 +14,10 @@
                 %i.fa.fa-picture-o
               =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
                 %i.fa.fa-trash-o
+              =link_to move_in_list_image_path(image, direction: 'up'), method: :put do
+                %i.fa.fa-angle-double-left
+              =link_to move_in_list_image_path(image, direction: 'down'), method: :put do
+                %i.fa.fa-angle-double-right
       - if @user == current_user
         #upload_button
           = link_to 'Upload Image', new_image_path, class: 'button', id: 'upload_image'
