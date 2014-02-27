@@ -31,6 +31,13 @@ Timdr::Application.routes.draw do
 
   post "users/like/:id", to: 'likes#create_like', as: 'create_like'
   get '/set_default/:id', to: 'images#set_default', as: 'set_image'
+
+  resources :images do
+    member do
+      put 'move/:direction', to: 'images#move_in_list', as: 'move_in_list'
+    end
+  end
+
   
   root to: 'home#index'
 

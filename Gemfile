@@ -22,6 +22,7 @@ gem 'acts_as_votable'
 gem 'best_in_place'
 gem 'fancybox-rails'
 gem 'font-awesome-rails'
+gem 'acts_as_list'
 
 
 

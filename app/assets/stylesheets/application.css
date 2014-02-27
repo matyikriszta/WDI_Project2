@@ -33,19 +33,14 @@ a {
   color: #444;
 }
 
-h1 {
-  font-family: 'Inconsolata', sans-serif;
-  margin: 0 0 20px 0;
-}
-
-h2 {
+h1, h2 {
   font-family: 'Inconsolata', sans-serif;
   margin: 0 0 20px 0;
 }
 
 h3 {
   font-family: 'Inconsolata', sans-serif;
-  margin: 10px 0 10px 0;
+  margin: 0 0 10px 0;
 }
 
 p {
@@ -55,15 +50,29 @@ p {
 /* NAV BAR */
 
 #nav {
-  margin: 30px 0;
+  margin: 20px 0 0 0;
   width: 1240px;
   float: right;
 }
 
+#nav h1 {
+  margin: 0;
+  display: inline-block;
+  font-family: 'Satisfy', cursive;
+  /*font-family: 'Yellowtail', cursive;*/
+}
+
+#nav h1 a {
+  margin-left: 40px;
+  font-size: 200%;
+}
+
 .login {
+  padding-top: 30px;
+  float: right;
+  display: inline-block;
   font-family: 'Inconsolata', sans-serif;
   text-align: right;
-  margin-left: 232px;
 }
 
 .dashboard_button {
@@ -72,7 +81,6 @@ p {
   border-radius: 2px;
   color: white;
   background: #00b355;
-
 }
 
 #content {
@@ -156,7 +164,7 @@ p {
 }
 
 #profile_description {
-  margin: -60px 90px 0 0;
+  margin: 0px 90px 0 0;
   display: inline-block;
   width: 58%;
   float: right;
@@ -194,14 +202,14 @@ p {
 
 #upload_button {
   padding-top: 16px;
-  padding-bottom: 38px;
+  padding-bottom: 30px;
   vertical-align: bottom;
   display: inline-block;
-  width: 140px;
+  width: 150px;
 }
 
-input {
-  padding: 10px;
+#gallery p {
+  width: 90%;
 }
 
 .tokenfield {
@@ -222,15 +230,16 @@ input {
 
 .ui-autocomplete { height: 150px; overflow-y: scroll; overflow-x: hidden;}
 
-/* MESSAGING PAGE */
+/* CHAT PAGE */
 
 .chat {
+  font-family: 'Inconsolata', sans-serif;
   width: 500px;
   margin: 0 auto;
 }
 
 .sender, .receiver {
-  max-width: 300px;
+  max-width: 380px;
   clear: both;
   border-radius: 5px;
   margin: 5px 0 5px 0;
@@ -238,7 +247,6 @@ input {
 }
 
 .sender {
-  font-family: 'Inconsolata', sans-serif;
   float: right;
   background: #BCE3FF;
   text-align: right;
@@ -250,13 +258,19 @@ input {
 }
 
 .response {
-  font-family: 'Inconsolata', sans-serif;
   clear: both;
+  margin-bottom: 20px;
 }
 
 #message_field {
-  width: 500px;
-  padding: 0 0 30px;
+  width: 485px;
+  padding: 5px 0 30px 10px;
+  margin-bottom: 5px;
+}
+
+#message_options { 
+  margin: 15px 0 40px 0;
+  float: right;
 }
 
 /* DASH BACKGROUND */
@@ -367,14 +381,6 @@ li {
   color: black;
 } 
 
-#message_body p {
-  font-size: 120%;
-} 
-
-#message_from, #message_topic, #message_body {
-  font-size: 80%;
-}
-
 #dash_new_message {
   margin-top: 20px;
   text-align: right;
@@ -449,8 +455,13 @@ li {
 
 /*INBOX MESSAGES*/
 
+.message_message {
+  font-family: 'Inconsolata', sans-serif;
+  width: 38%;
+}
+
 .message_from {
-  margin: 0 0 20px 20px;
+  margin: 0 0 20px 0;
   display: inline-block;
   width: 80px;
 }
@@ -466,22 +477,31 @@ li {
   vertical-align: top;
   display: inline-block;
   width: 300px;
+  max-height: 80px;
+}
+
+.message_body h3 {
+  margin-top: 0;
 }
 
 .message_body a {
   text-decoration: none;
   color: black;
-} 
-
-.message_from, .message_topic, .message_body {
-  font-family: 'Inconsolata', sans-serif;
-  font-size: 80%;
 }
 
-.dash_new_message {
-  margin-top: 20px;
-  text-align: right;
-  font-family: 'Inconsolata', sans-serif;
+.message_links {
+  float: right;
+  width: 28px;
+  padding-top: 34px;
+}
+
+i.fa.fa-reply.fa-lg, i.fa.fa-comments.fa-lg {
+  margin-bottom: 8px;
+  float: right;
+}
+
+i.fa.fa-trash-o.fa-lg, i.fa.fa-trash-o.fa-lg {
+  float: right;
 }
 
 /*USERS NAV*/

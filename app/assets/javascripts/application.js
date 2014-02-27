@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require jquery.ui.slider
+//= require jquery.ui.sortable
 //= require best_in_place
 //= require fancybox
 //= require_tree .

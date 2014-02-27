@@ -1,4 +1,20 @@
 class ImagesController < ApplicationController
+  
+  def move_in_list
+    @image = Image.find(params[:id])
+    case params[:direction]
+    when 'up'
+      @image.move_higher
+    when 'down'
+      @image.move_lower
+    end
+
+    @image.save
+
+    redirect_to user_profile_path(@image.user)
+  end
+
+
   # GET /images
   # GET /images.json
   def index

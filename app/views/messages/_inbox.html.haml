@@ -5,8 +5,10 @@
         = get_profile_image(message.from)
       .message_body
         %h3= message.from.name
-        %p= truncate(message.body, length: 100, separator: ' ')
-      .reply_link
-        = link_to 'Reply', conversation_path(message.id)
-      .delete_link
-        = link_to 'Delete', destroy_message_path(message.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        / %p= message.topic
+        %p= truncate(message.body, length: 90, separator: ' ')
+      .message_links
+        = link_to conversation_path(message.id) do 
+          %i.fa.fa-reply.fa-lg
+        = link_to destroy_message_path(message.id), method: :delete, confirm: 'Are you sure you want to delete?' do 
+          %i.fa.fa-trash-o.fa-lg
