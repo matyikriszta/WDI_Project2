@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     # @users_liked = current_user.find_voted_items
     # @users_liked_by = current_user.get_voted User
 
-    @user_matches = current_user.match
+    @user_matches = current_user.match.reverse
 
   end
 

@@ -37,8 +37,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = current_user.received_messages
-    @users_matched = current_user.match.sample(8)
-    @users_matched_count = current_user.match.size
+    @users_matched = current_user.match.reverse
     @votes = Vote.where(votable_id: current_user.id)
   end
 

@@ -74,12 +74,12 @@ p {
 
 }
 
-/* CONTENT */
-
 #content {
   width: 1240px;
   margin: 0 auto;
 }
+
+/* USER PROFILE */
 
 .user img {
   height: 150px;
@@ -104,36 +104,6 @@ p {
   list-style: none;
 }
 
-.profile_dash {
-  width: 200px;
-  display: inline-block;
-}
-
-#profile_dash_img {
-  width: 200px;
-  width: 200px;
-  border-radius: 100%;
-  overflow: hidden;
-}
-
-#profile_dash_img > img {
-  height: 200px;
-  vertical-align: middle;
-}
-
-.profile_dash ul {
-  list-style: none;
-}
-
-.pagination {
-  clear: both;
-}
-
-.left {
-  float: left;
-  width: 25%;
-}
-
 #profile_img > img {
   height: 300px;
   vertical-align: middle;
@@ -149,8 +119,46 @@ p {
 }
 
 #name {
+  margin: 0;
   width: 300px;
   text-align: center;
+}
+
+#send_message p {
+  width: 300px;
+  text-align: center;
+}
+
+#profile_buttons_details {
+  width: 300px;
+  display: inline-block;
+}
+
+#profile_details {
+  float: left;
+  width: 200px;
+  display: inline-block;
+}
+
+#profile_buttons {
+  float: left;
+  padding-top: 20px;
+  margin-left: 50px;
+  font-family: 'Inconsolata', sans-serif;
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+
+.membership_button a {
+  color: #fff;
+}
+
+#profile_description {
+  margin: -60px 90px 0 0;
+  display: inline-block;
+  width: 58%;
+  float: right;
 }
 
 /* GALLERY */
@@ -163,7 +171,7 @@ p {
 }
 
 .user_images {
-  margin: 0 22px 10px 0; 
+  margin: 0 26px 10px 0; 
   display: inline-block;
   width: 155px;
   vertical-align: top;
@@ -203,6 +211,8 @@ input {
 .token-input {
   font-size: 16px;
 }
+
+/* MESSAGING PAGE */
 
 .chat {
   width: 500px;
@@ -249,6 +259,66 @@ input {
   background: #eee;
 }
 
+/*DASH PROFILE*/
+
+.profile_dash {
+  font-family: 'Inconsolata', sans-serif;
+  width: 200px;
+  display: inline-block;
+}
+
+#profile_dash_img {
+  width: 200px;
+  width: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+#profile_dash_img > img {
+  height: 200px;
+  vertical-align: middle;
+}
+
+.profile_dash ul {
+  list-style: none;
+}
+
+#profile_dash_rest {
+  margin-top: 40px;
+  display: block;
+}
+
+.profile_dash a {
+  text-decoration: none;
+  color: #00b355;
+}
+
+#profile_dash_button {
+  margin: 0 auto; 
+}
+
+#profile_dash_button a {
+  margin: 0 auto;
+  color: #ffffff; 
+}
+
+.membership_button {
+  margin-top: 20px;
+  padding: 10px 37px;
+  border-radius: 2px;
+  color: white;
+  background: #00b355;
+}
+
+ul {
+  margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
+}
+
+li {
+  padding: 0 0 10px 0;
+}
+
 /*DASH MESSAGES*/
 
 .inbox {
@@ -258,7 +328,6 @@ input {
   vertical-align: top;
   display: inline-block;
   width: 415px;
-  height: 576px;
   float: left;
   font-family: 'Inconsolata', sans-serif;
 }
@@ -301,6 +370,12 @@ input {
   text-align: right;
 }
 
+#matches_search {
+  width: 434px;
+  float: right;
+  display: inline-block;
+}
+
 /*DASH MATCHES*/
 
 .matches {
@@ -309,7 +384,6 @@ input {
   background: #ffffff;
   float: right;
   vertical-align: top;
-  display: inline-block;
   width: 434px;
   max-height: 250px;
 }
@@ -359,51 +433,8 @@ input {
   padding: 20px 20px 20px 20px;
   vertical-align: bottom;
   float: right;
-  display: inline-block;
   width: 415px;
   background: #ffffff;
-}
-
-/*DASH PROFILE*/
-
-.profile_dash {
-  font-family: 'Inconsolata', sans-serif;
-}
-
-#profile_dash_rest {
-  margin-top: 40px;
-  display: block;
-}
-
-.profile_dash a {
-  text-decoration: none;
-  color: #00b355;
-}
-
-#profile_dash_button {
-  margin: 0 auto; 
-}
-
-#profile_dash_button a {
-  margin: 0 auto;
-  color: #ffffff; 
-}
-
-.membership_button {
-  margin-top: 20px;
-  padding: 10px 28px;
-  border-radius: 2px;
-  color: white;
-  background: #00b355;
-}
-
-ul {
-  margin: 20px 0 0 0;
-  padding: 10px 0 0 0;
-}
-
-li {
-  padding: 0 0 10px 0;
 }
 
 /*INBOX MESSAGES*/
@@ -455,6 +486,15 @@ li {
 }
 
 /*USERS RESULT*/
+
+.pagination {
+  clear: both;
+}
+
+.left {
+  float: left;
+  width: 25%;
+}
 
 #search_result {
   display: inline-block;

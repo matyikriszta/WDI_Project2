@@ -38,6 +38,9 @@
     <%= "latitude: #{@user.latitude}, longitude: #{@user.longitude}" %>
   </div>
  -->
+  <div><%= f.label :description %><br />
+  <%= f.text_field :description %></div>
+
     <div class='tokenfield form-control'><%= f.label :interest_list %><br />
   <%= f.text_field :interest_list, class: 'form-control' %></div>
 
