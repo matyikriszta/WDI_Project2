@@ -21,6 +21,7 @@ body {
   margin: 0 auto;
   font-family: 'Inconsolata', sans-serif; 
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .notice {
@@ -100,7 +101,7 @@ p {
 }
 
 .user ul {
-  padding: 40px 0;
+  /*padding: 40px 0;*/
   list-style: none;
 }
 
@@ -615,3 +616,7 @@ label:before {
     pointer-events:none;
     display:block;
 }*/
+
+form div {
+/*margin: 10px 0;*/
+}

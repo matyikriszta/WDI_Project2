@@ -99,7 +99,4 @@ $(function() {
   $("a[rel=leanModal]").leanModal();
   $(".fancybox").fancybox();
 
-
-
 })
-
