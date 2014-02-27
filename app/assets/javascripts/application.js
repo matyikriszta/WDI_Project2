@@ -85,6 +85,19 @@ $(function() {
     $('#sign_in').replaceWith('<a href=#login_form rel="leanModal" class="button">Sign in</a>')
   }
 
+  function animateSignUp() {
+    $('#sign_up_title').addClass('bounce animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
+      });
+  }
+
+  if (window.location.hash == "#sign_up") {
+    animateSignUp();
+  }
+
+    $('#register_link').click(animateSignUp);    
+
+
   $("a[rel=leanModal]").leanModal();
   $(".fancybox").fancybox();
 

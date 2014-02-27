@@ -4,22 +4,9 @@
   <title>Timdr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-
-  <!-- fancyBox -->
-  <link rel="stylesheet" href="css/jquery.fancybox.css?v=2.0.5" type="text/css" media="screen" />
-  <script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.0.5"></script>
-  <!-- fancyBox button helpers -->
-  <link rel="stylesheet" href="css/jquery.fancybox-buttons.css?v=2.0.5" type="text/css" media="screen" />
-  <script type="text/javascript" src="js/jquery.fancybox-buttons.js?v=2.0.5"></script>
-  <!-- fancyBox thumbnail helpers -->
-  <link rel="stylesheet" href="css/jquery.fancybox-thumbs.css?v=2.0.5" type="text/css" media="screen" />
-  <script type="text/javascript" src="js/jquery.fancybox-thumbs.js?v=2.0.5"></script>
-
-
-
-
   <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
   <div id="nav">
@@ -28,7 +15,7 @@
         <%= current_user.email %> | <%= link_to "log out", destroy_user_session_path, method: :delete %> <%= link_to "dashboard", dashboard_path, class: 'dashboard_button' %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: 'button', id: 'sign_in' %> | 
-        <%= link_to "Register", new_user_registration_path %>
+        <%= link_to "Register", '/#sign_up', id: 'register_link' %>
       <% end %>
     </div>
     <p class="notice"><%= notice %></p>
