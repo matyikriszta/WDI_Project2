@@ -23,8 +23,12 @@ class UsersController < ApplicationController
     date_from = params[:age_from].to_i.years.ago
     date_to = params[:age_to].to_i.years.ago
 
-    @users = @users.where('dob >= ? AND dob <= ?', date_to, date_from).page(params[:page]).per(12)
+    @users = @users.where(dob: date_to...date_from).page(params[:page]).per(12)
     render :index
+  end
+
+  def matched_users
+    @users = current_user.match
   end
 
   def show
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = current_user.received_messages
-    @users_matched = current_user.match
+    @users_matched = current_user.match.reverse
     @votes = Vote.where(votable_id: current_user.id)
   end
 

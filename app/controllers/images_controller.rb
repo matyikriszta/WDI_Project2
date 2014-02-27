@@ -71,7 +71,7 @@ class ImagesController < ApplicationController
         format.html { redirect_to user_profile_path(@image.user), notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to user_profile_path(@image.user), alert: @image.errors.full_messages.join(', ') }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end

@@ -82,7 +82,21 @@ $(function() {
 
   $('#upload_image').replaceWith('<a href=#image_form rel="leanModal" class="button">Upload Image</a>')
   $('#send_message').replaceWith('<a href=#message_form rel="leanModal" class="button">Send Message</a>')
+  if (window.location.pathname != "/users/sign_in") {
+    $('#sign_in').replaceWith('<a href=#login_form rel="leanModal" class="button">Sign in</a>')
+  }
 
+  function animateSignUp() {
+    $('#sign_up_title').addClass('bounce animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass();
+      });
+  }
+
+  if (window.location.hash == "#sign_up") {
+    animateSignUp();
+  }
+
+  $('#register_link').click(animateSignUp);    
   $("a[rel=leanModal]").leanModal();
   $(".fancybox").fancybox();
 

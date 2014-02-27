@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
   def create_message
     @to = User.find(params[:acts_as_messageable_message][:to])
     current_user.send_message(@to, params[:acts_as_messageable_message][:topic], params[:acts_as_messageable_message][:body]) unless @to == current_user
-    redirect_to all_path
+    redirect_to user_profile_path(@to)
   end
 
   def conversation
