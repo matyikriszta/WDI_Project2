@@ -1,55 +1,51 @@
-.wrap
+#profile_img
+  = get_profile_image(@user)
+#gallery
+  -@user.images.each do |image|
+    .user_images
+      =link_to image_tag(image.image.thumb.url), image.image.detail.url, class: :fancybox
+      .image_control
+        - if @user == current_user
+          =link_to set_image_path(image) do
+            %i.fa.fa-picture-o
+          =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
+            %i.fa.fa-trash-o
+  - if @user == current_user
+    #upload_button
+      = link_to 'Upload Image', new_image_path, class: 'button', id: 'upload_image'
+    #image_form
+      =render 'shared/image_form'
+  %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
+  %p= @user.interest_list
 
-  %p
-    #profile_img
-      = get_profile_image(@user)
-    #gallery
-      -@user.images.each do |image|
-        .user_images
-          =link_to image_tag(image.image.thumb.url), image.image.detail.url, class: :fancybox
-          .image_control
-            - if @user == current_user
-              =link_to set_image_path(image) do
-                %i.fa.fa-picture-o
-              =link_to image_path(image.id), method: :delete, confirm: 'Are you sure you want to delete?' do
-                %i.fa.fa-trash-o
-      - if @user == current_user
-        #upload_button
-          = link_to 'Upload Image', new_image_path, class: 'button', id: 'upload_image'
-        #image_form
-          =render 'shared/image_form'
+%h1#name= best_in_place_if current_user.id == @user.id, @user, :name, type: :input, path: update_user_path(@user)
+#profile_buttons_details
+  #profile_buttons
+    - if current_user.is_match?(@user)
+      - if can? :create, ActsAsMessageable
+        %p= button_to 'Send Message', new_message_path, id: 'send_message'
+        #message_form
+          %h1 Send Message
 
-  %h1#name= best_in_place_if current_user.id == @user.id, @user, :name, type: :input, path: update_user_path(@user)
-  #profile_buttons_details
-    #profile_buttons
-      - if current_user.is_match?(@user)
-        - if can? :create, ActsAsMessageable
-          %p= button_to 'Send Message', new_message_path, id: 'send_message'
-          #message_form
-            %h1 Send Message
-
-            = form_for ActsAsMessageable::Message.new, :url => create_message_path, :method => :post do |f|
-              %p= f.hidden_field :to, {value: @user.id}
-              %p= f.label :topic
-              %p= f.text_field :topic
-              %p= f.label :body
-              %p= f.text_area :body
-              %p= f.submit :send
-        - else
-          You'll need to upgrade to send this user a message.
-          .membership_button
-            = upgrade_button
-
-      - if current_user.find_voted_items.map(&:id).include?(@user.id)
-        %p You've liked this user.
+          = form_for ActsAsMessageable::Message.new, :url => create_message_path, :method => :post do |f|
+            %p= f.hidden_field :to, {value: @user.id}
+            %p= f.label :topic
+            %p= f.text_field :topic
+            %p= f.label :body
+            %p= f.text_area :body
+            %p= f.submit :send
       - else
-        = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
+        You'll need to upgrade to send this user a message.
+        .membership_button
+          = upgrade_button
 
-    #profile_details
-      %p= best_in_place_if current_user.id == @user.id, @user, :location, type: :input, path: update_user_path(@user)
-      %p= @user.gender
-      %p= @user.age
-      %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}
-  #profile_description
-    %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
-    %p= @user.interest_list
+    - if current_user.find_voted_items.map(&:id).include?(@user.id)
+      %p You've liked this user.
+    - else
+      = button_to 'Like', create_like_path(@user.id), method: :post unless @user == current_user
+
+  #profile_details
+    %p= best_in_place_if current_user.id == @user.id, @user, :location, type: :input, path: update_user_path(@user)
+    %p= @user.gender
+    %p= @user.age
+    %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}

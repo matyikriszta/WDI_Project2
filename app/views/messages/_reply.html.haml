@@ -2,5 +2,8 @@
   = form_tag reply_path(@message), method: :post do
     = hidden_field_tag :id, @message.id
     = hidden_field_tag :topic, @message.topic
-    = text_field_tag :body, nil, id: 'message_field'
+    = text_field_tag :body, nil, id: 'message_field', placeholder: '-> ~', autofocus: true
     = submit_tag :send
+    #message_options
+      = link_to 'Mark as read |', mark_as_read_path
+      = link_to 'Back', all_path
