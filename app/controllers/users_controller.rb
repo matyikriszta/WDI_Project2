@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = current_user.received_messages
-    @users_matched = current_user.match
+    @users_matched = current_user.match.reverse
     @votes = Vote.where(votable_id: current_user.id)
   end
 
