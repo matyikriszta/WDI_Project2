@@ -20,6 +20,8 @@
       = link_to 'Upload Image', new_image_path, class: 'button', id: 'upload_image'
     #image_form
       =render 'shared/image_form'
+  %p= best_in_place_if current_user.id == @user.id, @user, :description, type: :textarea, path: update_user_path(@user)
+  %p= @user.interest_list
 
 %h1#name= best_in_place_if current_user.id == @user.id, @user, :name, type: :input, path: update_user_path(@user)
 #profile_buttons_details
@@ -53,3 +55,4 @@
     %p= @user.gender
     %p= @user.age
     %p Looking for: #{best_in_place_if current_user.id == @user.id, @user, :preference, type: :select, :collection => [["male", "male"],[ "female", "female"], ["both","both"]], path: update_user_path(@user)}
+
