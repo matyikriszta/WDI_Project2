@@ -1,7 +1,7 @@
 .tokenfield {
   height: auto;
   min-height: 34px;
-  padding-bottom: 0px;
+  padding-bottom: 6px;
   background: #fff;
 }
 .tokenfield.focus {
@@ -35,7 +35,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   white-space: nowrap;
-  margin: -1px 0 0 0;
+  margin: -1px 3px 4px 0;
   height: 22px;
   vertical-align: top;
   cursor: default;

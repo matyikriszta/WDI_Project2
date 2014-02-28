@@ -715,7 +715,7 @@ form div {
 }
 
 #user_description {
-  width: 80%;
+  width: 60%;
   height: 100px;
 }
 
@@ -728,7 +728,7 @@ form div {
 }
 
 .form-control {
-  width: 80%;
+  width: 58%;
 }
 
 #cancel_account {
@@ -736,27 +736,4 @@ form div {
   display: inline-block;
   vertical-align: top;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

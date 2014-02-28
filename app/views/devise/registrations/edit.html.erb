@@ -2,10 +2,10 @@
   <%= devise_error_messages! %>
   
   <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
+  <%= f.text_field :name, :autofocus => true %></div>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.email_field :email %></div>
 
   <div id='user_gender'><%= f.label :gender %><br />
   <%= f.select :gender, ['male', 'female'] %></div>
@@ -13,7 +13,7 @@
   <div id="user_preference"><%= f.label :preference %><br />
   <%= f.select :preference, ['male', 'female', 'both'] %></div>
 
-  <div><%= f.label :dob %><br />
+  <div><%= f.label :dob, 'Date of Birth' %><br />
   <%= f.text_field :dob, type: 'date' %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
