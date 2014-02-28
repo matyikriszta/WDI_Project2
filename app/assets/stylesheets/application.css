@@ -165,7 +165,7 @@ p {
 }
 
 #profile_description {
-  margin: 0px 90px 0 0;
+  margin: -40px 90px 0 0;
   display: inline-block;
   width: 58%;
   float: right;
@@ -472,11 +472,22 @@ li {
   background: #ffffff;
 }
 
-/*INBOX MESSAGES*/
+/* INBOX MESSAGES */
+
+#new {
+  width: 48%;
+  display: inline-block;
+}
+
+#everything {
+  float: right;
+  width: 48%;
+  display: inline-block;
+}
 
 .message_message {
+  display: inline-block;
   font-family: 'Inconsolata', sans-serif;
-  width: 38%;
 }
 
 .message_from {
