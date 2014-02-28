@@ -4,7 +4,7 @@
       .message_from
         = get_profile_image(message.to)
       .message_body
-        %h2= message.to.name
+        %h3= message.to.name
         %p= truncate(message.body, length: 120, separator: ' ')
       .message_links
         = link_to conversation_path(message.id) do

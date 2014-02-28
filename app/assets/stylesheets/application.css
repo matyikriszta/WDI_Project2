@@ -488,6 +488,7 @@ li {
 .message_message {
   display: inline-block;
   font-family: 'Inconsolata', sans-serif;
+  width: 80%;
 }
 
 .message_from {
@@ -526,11 +527,13 @@ li {
 }
 
 i.fa.fa-reply.fa-lg, i.fa.fa-comments.fa-lg {
+  display: inline-block;
   margin-bottom: 8px;
   float: right;
 }
 
 i.fa.fa-trash-o.fa-lg, i.fa.fa-trash-o.fa-lg {
+  display: inline-block;
   float: right;
 }
 
