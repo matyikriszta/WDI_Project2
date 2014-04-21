@@ -8,7 +8,7 @@
   = hidden_field_tag :age_to, params[:age_to]
   #age_slider  
 
-  %p Interest
+  %p Interests
   = text_field_tag :interest_list, params[:interest_list], { placeholder: 'interests', class: 'tokenfield' }
 
   %p
@@ -18,6 +18,8 @@
   = hidden_field_tag :distance, params[:distance], { placeholder: 'distance' }
   #distance_slider
   
-  %p Membership
-  = select_tag :membership, options_for_select(['all', 'basic', 'premium'])
+  %p
+    Membership
+    = select_tag :membership, options_for_select(['all', 'basic', 'premium'])
+  
   = submit_tag :submit, { value: 'Search' }

@@ -1,7 +1,7 @@
 .tokenfield {
   height: auto;
-  min-height: 34px;
-  padding-bottom: 6px;
+  min-height: 20px;
+  padding-bottom: 8px;
   background: #fff;
 }
 .tokenfield.focus {
